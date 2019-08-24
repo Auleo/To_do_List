@@ -44,15 +44,28 @@ function prepareInitialList() {
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
   initialList.forEach(todo => {
     addNewElementToList(todo);
+
   });
 }
 
 function addNewElementToList(title   /* Title, author, id */) {
   $list.appendChild(createElement('nowy', 2));
+      
+  function toDo() {
+      let  test = document.getElementById("toDoInput").nodeValue
+      let  text = document.createTextNode(test)
+      let  newItem = document.createElement('li')
+      newItem.appendChild(text)
+      document.getElementById("toDo").appendChild(newItem)
+  }
+
+
+
+
   //obsługa dodawanie elementów do listy
   
   const newElement = createElement(title);
-  $list.appendChild(newElement);si'/
+  $list.appendChild(newElement);
 }
 
 function createElement(title /* Title, author, id */) {
