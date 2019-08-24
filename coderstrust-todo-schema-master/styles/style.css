@@ -17,6 +17,7 @@ ul {
 
 /* The Modal (background) */
 .modal {
+  
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -29,6 +30,10 @@ ul {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   background:url(https://picsum.photos/id/208/2500/1300) no-repeat center center;
+}
+#myModal{
+ background-color: lightgreen;
+ 
 }
 
 /* Modal Content */

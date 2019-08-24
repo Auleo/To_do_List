@@ -1,4 +1,5 @@
-// Tutaj dodacie zmienne globalne do przechowywania elementów takich jak np. lista czy input do wpisywania nowego todo
+// Tutaj dodacie zmienne globalne do przechowywania elementów takich jak
+// np. lista czy input do wpisywania nowego todo
 let $list;
 const initialList = ['Dzisiaj robię usuwanie', 'Nakarm psa'];
 
@@ -19,7 +20,7 @@ function prepareDOMElements() {
 
 function prepareDOMEvents() {
   let liCollection = document.querySelectorAll('.test-item[i]');
-  console.log(.test-item[i]+1);  
+  console.log('.test-item[i]+1');  
 liCollection.forEach(function (li , index) { 
   li.addEventListener('click', function() {
 
@@ -28,7 +29,7 @@ liCollection.forEach(function (li , index) {
 
   // Przygotowanie listenerów
   let rootElement = document.querySelector('ul');
-  let liCollection =document.querySelectorAll('.item-item');
+  let liCollection =document.querySelectorAll('.item-item');{
 
   
   $list.addEventListener('click', listClickManager);
@@ -48,7 +49,7 @@ function prepareInitialList() {
   });
 }
 
-function addNewElementToList(title   /* Title, author, id */) {
+function addNewElementToList(title   /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/) {
   $list.appendChild(createElement('nowy', 2));
       
   function toDo() {
@@ -57,18 +58,14 @@ function addNewElementToList(title   /* Title, author, id */) {
       let  newItem = document.createElement('li')
       newItem.appendChild(text)
       document.getElementById("toDo").appendChild(newItem)
-  }
+    
+    }
 
-
-
-
-  //obsługa dodawanie elementów do listy
+ //obsługa dodawanie elementów do listy
   
-  const newElement = createElement(title);
-  $list.appendChild(newElement);
-}
 
-function createElement(title /* Title, author, id */) {
+
+function createElement(title /* Tworzenie nowego elementu    /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/Title, author, id */) {
   // Tworzyc reprezentacje DOM elementu return newElement
   // return newElement
   const newElement = document.createElement('li');
