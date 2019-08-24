@@ -11,14 +11,15 @@ function main() {
 function prepareDOMElements() {
     const container = document.querySelector('#list');
     const headlines = container.querySelectorAll('li');
+
   // To będzie idealne miejsce do pobrania naszych
   // elementów z drzewa DOM i zapisanie ich w zmiennych
   $list = document.getElementById('list');
 }
 
 function prepareDOMEvents() {
-  let liCollection = document.querySelectorAll('.test-item');
-
+  let liCollection = document.querySelectorAll('.test-item[i]');
+  console.log(.test-item[i]+1);  
 liCollection.forEach(function (li , index) { 
   li.addEventListener('click', function() {
 
@@ -39,6 +40,7 @@ function prepareInitialList() {
   newElement.id= 'test10;'
   newElement.innerText = 'item 10';
   rootElement.appendChild(newElement);
+
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
   initialList.forEach(todo => {
     addNewElementToList(todo);
