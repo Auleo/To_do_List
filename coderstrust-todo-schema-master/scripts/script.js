@@ -9,7 +9,8 @@ function main() {
 }
 
 function prepareDOMElements() {
-  
+    const container = document.querySelector('#list');
+    const headlines = container.querySelectorAll('li');
   // To będzie idealne miejsce do pobrania naszych
   // elementów z drzewa DOM i zapisanie ich w zmiennych
   $list = document.getElementById('list');
