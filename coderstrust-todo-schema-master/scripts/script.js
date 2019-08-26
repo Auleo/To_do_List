@@ -34,7 +34,7 @@ liCollection.forEach(function (li , index) {
   
   $list.addEventListener('click', listClickManager);
 }
-
+ 
 function prepareInitialList() {
   letnewElement = document.createElement('li');
   newElement.className = 'text-item';
