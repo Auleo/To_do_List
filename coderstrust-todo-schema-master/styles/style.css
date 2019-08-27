@@ -35,7 +35,6 @@ ul {
  background-color: lightgreen;
  
 }
-
 /* Modal Content */
 .modal-content {
   background-color:lightgreen;
@@ -58,4 +57,7 @@ ul {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+#list{
+  margin:10px;
 }
