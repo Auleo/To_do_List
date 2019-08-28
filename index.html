@@ -1,29 +1,35 @@
-<!DOCTYPE html>
 <html lang="pl">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <title>Todo list</title>
+    <title>To do list</title>
   </head>
   <body>
     <div id="addForm" class="header"><br>
       <h2 class='h2-top'>Moja lista do zrobienia</h2>
-      <input type="text" id="myInput" placeholder="Gromadze">
-      <span id="addTodo" class="addBtn"><button type="button" onclik="list()">Dodaj informacje</button></span>
+      <input type="text" id="myInput" placeholder="Lista do zrobienia">
+      <span id="addTodo" class="addBtn">Add</span>
     </div>
+    
+    <h1> To Do lista App</h1>
     <ul id="list">
+        <form id="toDo" >
+            <input id=toDoInput">
+            <button type="button" onclik="toList()">Dodaj mnie</button>
+         </form>
+    
+   </ul>
 
-    </ul>
     <div id="myModal" class="modal">
 
       <!-- Modal content -->
       <div class="modal-content">
         <span id="closePopup" class="close">&times;</span>
         <div>
-          <input type="text" id="popupInput" placeholder="Przyczepienie do zakupów kolejnych">
-          <button id="btn__cancel" class="addBtn">usun</button>
-          <button id="btn__done" class="addBtn">potwierdzenie</button>
+          <input type="text" id="popupInput" placeholder="Treść">
+          <button id="btn__cancel" class="addBtn">CANCEL</button>
+          <button id="btn__done" class="addBtn">OK</button>
         </div>
       </div>
 

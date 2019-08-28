@@ -17,7 +17,6 @@ function prepareDOMElements() {
     $list = document.getElementById('list');
     $popupInput = document.getElementById('popupinput');
 }
-
 function List(){
   let item = document.getElementById("todoInpot").value
   let text = document.createTextNode(item)
@@ -25,6 +24,7 @@ function List(){
   newItem.appendChild(text)
   document.getElementById("todoList").appendChild(newItem)
 }
+
   // To będzie idealne miejsce do pobrania naszychlet $list;
 let lastId = 0;
 let $popupInput;
@@ -209,8 +209,6 @@ function createElement(title /* Tworzenie nowego elementu    /* To Do List, Ment
 function listClickManager(/* event- event.target */) {
   event.target.parentElement.id
   if (event.target.className === 'test-item') { editListElement(id) }
-
-
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
   // 
   // 
