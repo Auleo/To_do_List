@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "coderstrust-todo-schema-master\\styles"
+		},
+		{
+			"path": "coderstrust-todo-schema-master\\.vscode"
+		},
+		{
+			"path": "coderstrust-todo-schema-master\\scripts"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501
+	}
+}
