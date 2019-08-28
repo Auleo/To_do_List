@@ -49,6 +49,7 @@ function prepareInitialList() {
     addNewElementToList(todo);
   });
 }
+
 function addNewElementToList(title   /* Title, author, id */) {
   //obsługa dodawanie elementów do listy
   // $list.appendChild(createElement('nowy', 2))
@@ -58,10 +59,13 @@ function addNewElementToList(title   /* Title, author, id */) {
 function createElement(title /* Title, author, id */) {
   // Tworzyc reprezentacje DOM elementu return newElement
   // return newElement
+
   const newElement = document.createElement('li');
   newElement.id = 'todo-' + (++lastId);
+
   const titleElement = document.createElement('span');
   titleElement.innerText = title;
+
   const delButton = document.createElement('button');
   delButton.innerText = 'delete';
   delButton.className = 'btn-delete';
@@ -80,6 +84,7 @@ function addNewTodoToList() {
 }
 
 function listClickManager(event) {
+
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
   // event.target.parentElement.id
   let id = event.target.parentElement.id;

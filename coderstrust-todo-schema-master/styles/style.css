@@ -17,13 +17,12 @@ ul {
 
 /* The Modal (background) */
 .modal {
-  
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
+  left: 10;
+  top:1 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -32,7 +31,7 @@ ul {
   background:url(https://picsum.photos/id/208/2500/1300) no-repeat center center;
 }
 #myModal{
- background-color: lightgreen;
+ background-color: rgb(122, 136, 122);
  
 }
 /* Modal Content */
