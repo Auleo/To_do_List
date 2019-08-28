@@ -8,28 +8,33 @@
   <body>
     <div id="addForm" class="header"><br>
       <h2 class='h2-top'>Moja lista do zrobienia</h2>
+
       <input type="text" id="myInput" placeholder="Lista do zrobienia">
-      <span id="addTodo" class="addBtn">Add</span>
+
+      <span id="addTodo" class="addBtn" ><button > Dodaj </button></span>
     </div>
-      <h1> To Do lista App</h1>
-    <ul id="list">
+      <h1> Lista do zrobienia</h1>
 
-        <form id="toDo" >
-            <input id=toDoInput">
-            <button type="button" onclik="toList()">Dodaj mnie</button>
-         </form>
-   </ul>
     <div id="myModal" class="modal">
-
+          <ul id="list">
+   
+              
       <!-- Modal content -->
       <div class="modal-content">
+
+          <ul id="myInput">
+              <form id="toDo" >
+                  <input id="toDoInput">
+                  <button type="button" onclik="addNewTodoToList()">Dodaj mnie</button>
+               </form>
+         </ul>
         <span id="closePopup" class="close">
           popup
         </span>
         <div>
           <input type="text" id="popupInput" placeholder="Co kupić">
           <button id="btn__cancel" class="addBtn">Usuń</button>
-          <button id="btn__done" class="addBtn"></button>Potwierdz</button>
+          <button id="btn__done" class="addBtn">Potwierdz</button>
         </div>
       </div>
     </div>
