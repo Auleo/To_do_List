@@ -210,8 +210,6 @@ function createElement(title /* Tworzenie nowego elementu    /* To Do List, Ment
 function listClickManager(/* event- event.target */) {
   event.target.parentElement.id
   if (event.target.className === 'test-item') { editListElement(id) }
-
-
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
   // 
   // 
