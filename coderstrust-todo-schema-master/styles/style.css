@@ -13,6 +13,9 @@ ul {
   margin: 5%;
   padding: 0%;
 }
+#addForm { 
+  max-width: 400px; margin: 10px auto; 
+}
 #toDForm{
   display:block;
   width: 100%;
@@ -20,6 +23,10 @@ ul {
   padding:6px 12px;
   font-size:18px;
 }
+#toDoListWrapper {
+   max-width: 400px; margin: 10px auto; 
+  }
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */

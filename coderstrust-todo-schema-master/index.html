@@ -6,23 +6,24 @@
     <title>To do list</title>
   </head>
   <body>
-    <div id="addForm" class="header"><br>
+
+    <form id="addForm" class="header"><br>
       <h2 class='h2-top'>Moja lista do zrobienia</h2>
       <input type="text" id="myInput" placeholder="Lista do zrobienia">
       <span id="addTodo" class="addBtn">Add</span>
-    </div>
-      <h1> To Do lista App</h1>
-    <ul id="list">
+    </form>
+
+      <h1> To Do lista </h1>
+  <div id="toDoListWrapper">
+      <ul id="list">
 
         <form id="toDo" >
             <input id=toDoInput">
             <button type="button" onclik="toList()">Dodaj mnie</button>
-         </form>
-    
-   </ul>
-    <div id="myModal" class="modal">
+        </form>    
+       </ul>
 
-    
+    <div id="myModal" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
         <span id="closePopup" class="close">
@@ -35,6 +36,7 @@
         </div>
       </div>
     </div>
+  </div>  
     <script src="scripts/script.js"></script>
   </body>
 </html>
