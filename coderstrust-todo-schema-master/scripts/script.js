@@ -23,7 +23,6 @@ function List(){
 let $popupInput;
 let $addTodoBtn;
 let $myInput;
-const initialList = ['Dzisiaj robię usuwanie', 'Nakarm psa'];
 
 function prepareDOMElements() {
   // const container = document.querySelector('#list');
@@ -41,6 +40,22 @@ function prepareDOMEvents() {
   $addTodoBtn.addEventListener('click', addNewTodoToList);
   $addForm.addEventListener('submit', addNewTodoToList);
 }
+/*
+function prepareDOMEvents() {
+  let liCollection = document.querySelectorAll('.test-item[i]');
+  console.log('.test-item[i]+1');  
+  liCollection.forEach(function (li , index) {
+    li.addEventListener('click', function() {
+      console.log(index +1);      
+    });
+
+    // Przygotowanie listenerów
+    let rootElement = document.querySelector('ul');
+    let liCollection =document.querySelectorAll('.item-item');{
+    $list.addEventListener('click', listClickManager);
+  });
+  }
+*/
 function prepareInitialList() {
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
   initialList.forEach(todo => {
@@ -77,11 +92,12 @@ function createElement(title /* Title, author, id */) {
 /**
  * Działa po kliknieciu submit w formularzu dodawania nowego itema
  */
-function addNewTodoToList() {
+function addNewTodoToList(event) {
   if ($myInput.value.trim()) {
     addNewElementToList($myInput.value);
     $myInput.value = '';
   }
+  event.preventDafault();
 }
 
 function listClickManager(event) {
@@ -138,35 +154,19 @@ function markElementAsDone(/* id */) {
   //zaznacz element jako wykonany (podmień klasę CSS)
 }
 
-function prepareDOMEvents() {
-  let liCollection = document.querySelectorAll('.test-item[i]');
-  console.log('.test-item[i]+1');  
-liCollection.forEach(function (li , index) { 
-  li.addEventListener('click', function() {
 
- console.log(index +1);      
-});
-
-  // Przygotowanie listenerów
-  let rootElement = document.querySelector('ul');
-  let liCollection =document.querySelectorAll('.item-item');{
-
-  
-  $list.addEventListener('click', listClickManager);
-}
- 
 function prepareInitialList() {
-  letnewElement = document.createElement('li');
+ /* let newElement = document.createElement('li');
   newElement.className = 'text-item';
   newElement.id= 'test10;'
   newElement.innerText = 'item 10';
-  rootElement.appendChild(newElement);
+  $list.appendChild(newElement);
 
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
   initialList.forEach(todo => {
     addNewElementToList(todo);
 
-  });
+  });*/
 }
 /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
 function addNewElementToList(title) {
