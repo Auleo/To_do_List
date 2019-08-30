@@ -20,7 +20,6 @@ function List(){
   document.getElementById("todoList").appendChild(newItem);
 }
   // To będzie idealne miejsce do pobrania naszychlet $list;
-let lastID = 0;
 let $popupInput;
 let $addTodoBtn;
 let $myInput;
