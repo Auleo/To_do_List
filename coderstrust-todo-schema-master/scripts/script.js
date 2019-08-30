@@ -75,8 +75,8 @@ function addNewElementToList(title   /* Title, author, id */) {
   const newElement = createElement(title);
   $list.appendChild(newElement);
 }
-
-function createElement(title /* Title, author, id */) {
+/*
+function createElement(title /* Title, author, id ) {
   // Tworzyc reprezentacje DOM elementu return newElement
   // return newElement
 
@@ -95,6 +95,7 @@ function createElement(title /* Title, author, id */) {
 
   return newElement;
 }
+*/
 /**
  * Działa po kliknieciu submit w formularzu dodawania nowego itema
  */
@@ -201,6 +202,12 @@ function createElement(title) {
   // return newElement
   if (title != '') {
     const newElement = document.createElement('li');
+
+    let date = new Date();
+    let timestamp = 'uniqId'+date.getTime();
+
+
+    // dodawanie do li id 
     const delBtn = document.createElement('span');
     delBtn.innerText = '(usuń)';
     newElement.innerText = title;
