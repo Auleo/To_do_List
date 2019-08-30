@@ -4,7 +4,10 @@ let $list;
 let lastID = 0 ;
 /*let $popupInput;*/
 const $addForm = document.getElementById('addForm');
-const initialList = ['Dzisiaj robię usuwanie', 'Nakarm psa'];
+const initialList = [
+  'Dzisiaj robię usuwanie',
+  'Nakarm psa'
+  ];
 
 function main() {
   prepareDOMElements();
@@ -58,9 +61,12 @@ function prepareDOMEvents() {
 */
 function prepareInitialList() {
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
-  initialList.forEach(todo => {
-    addNewElementToList(todo);
-  });
+  initialList.forEach( todo );
+}
+
+function todo(element, index, tablica) {
+  console.log('init: '+element);
+  addNewElementToList(element);
 }
 
 function addNewElementToList(title   /* Title, author, id */) {
@@ -200,7 +206,7 @@ function createElement(title) {
 
     return newElement;
   }
-  return false;:)
+  return false;
 }
 
 function listClickManager(/* event- event.target */) {
