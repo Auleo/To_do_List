@@ -2,7 +2,8 @@
 // np. lista czy input do wpisywania nowego todo
 let $list;
 let lastID = 0 ;
-let $popupInput;
+/*let $popupInput;*/
+const $addForm = document.getElementById('addForm');
 const initialList = ['Dzisiaj robię usuwanie', 'Nakarm psa'];
 
 function main() {
@@ -11,44 +12,35 @@ function main() {
   prepareInitialList();
 }
 
-function prepareDOMElements() {
-    const container = document.querySelector('#list');
-    const headlines = container.querySelectorAll('li');
-    $list = document.getElementById('list');
-    $popupInput = document.getElementById('popupinput');
-}
-
 function List(){
-  let item = document.getElementById("todoInpot").value
-  let text = document.createTextNode(item)
-  let newItem = document.createElement('li')
-  newItem.appendChild(text)
-  document.getElementById("todoList").appendChild(newItem)
+  let item = document.getElementById("todoInpot").value;
+  let text = document.createTextNode(item);
+  let newItem = document.createElement('li');
+  newItem.appendChild(text);
+  document.getElementById("todoList").appendChild(newItem);
 }
   // To będzie idealne miejsce do pobrania naszychlet $list;
-let lastId = 0;
+let lastID = 0;
 let $popupInput;
 let $addTodoBtn;
 let $myInput;
 const initialList = ['Dzisiaj robię usuwanie', 'Nakarm psa'];
 
-function main() {
-  prepareDOMElements();
-  prepareDOMEvents();
-  prepareInitialList();
-}
-
 function prepareDOMElements() {
+  // const container = document.querySelector('#list');
+  // const headlines = container.querySelectorAll('li');
   // To będzie idealne miejsce do pobrania naszych elementów z drzewa DOM i zapisanie ich w zmiennych
   $list = document.getElementById('list');
   $popupInput = document.getElementById('popupInput');
   $addTodoBtn = document.getElementById('addTodo');
   $myInput = document.getElementById('myInput'); //=< kasowac
+
 }
 function prepareDOMEvents() {
   // Przygotowanie listenerów
   $list.addEventListener('click', listClickManager);
   $addTodoBtn.addEventListener('click', addNewTodoToList);
+  $addForm.addEventListener('submit', addNewTodoToList);
 }
 function prepareInitialList() {
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
@@ -63,6 +55,7 @@ function addNewElementToList(title   /* Title, author, id */) {
   const newElement = createElement(title);
   $list.appendChild(newElement);
 }
+
 function createElement(title /* Title, author, id */) {
   // Tworzyc reprezentacje DOM elementu return newElement
   // return newElement
@@ -82,7 +75,9 @@ function createElement(title /* Title, author, id */) {
 
   return newElement;
 }
-
+/**
+ * Działa po kliknieciu submit w formularzu dodawania nowego itema
+ */
 function addNewTodoToList() {
   if ($myInput.value.trim()) {
     addNewElementToList($myInput.value);
@@ -144,11 +139,6 @@ function markElementAsDone(/* id */) {
   //zaznacz element jako wykonany (podmień klasę CSS)
 }
 
-document.addEventListener('DOMContentLoaded', main);
-  // elementów z drzewa DOM i zapisanie ich w zmiennych
-  $list = document.getElementById('list');
-}
-
 function prepareDOMEvents() {
   let liCollection = document.querySelectorAll('.test-item[i]');
   console.log('.test-item[i]+1');  
@@ -179,10 +169,10 @@ function prepareInitialList() {
 
   });
 }
-
-function addNewElementToList(title   /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/) {
+/* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
+function addNewElementToList(title) {
   $list.appendChild(createElement('nowy', 2));
-      
+}
   function toDo() {
       let  test = document.getElementById("toDoInput").nodeValue
       let  text = document.createTextNode(test)
@@ -194,26 +184,30 @@ function addNewElementToList(title   /* To Do List, Mentor Paweł / Aga. W, http
 
  //obsługa dodawanie elementów do listy
   
-
-
-function createElement(title /* Tworzenie nowego elementu    /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/Title, author, id */) {
+/**
+ * @param {string} title 
+ * Tworzenie nowego elementu
+ * To Do List, Mentor Paweł 
+ * Aga. W, https://github.com/Auleo/To_do_List
+ */
+function createElement(title) {
   // Tworzyc reprezentacje DOM elementu return newElement
   // return newElement
-  const newElement = document.createElement('li');
-  newElement.innerText = title;
-  newElement.inerText= document.createElement('span')
+  if (title != '') {
+    const newElement = document.createElement('li');
+    newElement.innerText = title;
+    //newElement.innerText = document.createElement('span')
 
-  return newElement;
+    return newElement;
+  }
+  return false;
 }
 
 function listClickManager(/* event- event.target */) {
   event.target.parentElement.id
   if (event.target.className === 'test-item') { editListElement(id) }
-
-
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
-  // 
-  // 
+ 
 }
 
 function removeListElement(/* id */) {
@@ -225,30 +219,6 @@ function editListElement(/* id */) {
   // Umieść dane w popupie
 }
 
-function addDataToPopup(/* Title, author, id */) {
-  // umieść informacje w odpowiednim miejscu w popupie
-}
-
-function acceptChangeHandler() {
-  // pobierz dane na temat zadania z popupu (id, nowyTitle, nowyColor ...)
-  // Następnie zmodyfikuj element listy wrzucając w niego nowyTitle, nowyColor...
-  // closePopup()
-}
-
-function openPopup() {
-  // Otwórz popup
-}
-
-function closePopup() {
-  // Zamknij popup
-}
-
-function declineChanges() { //niepotrzebna raczej
-  // closePopup()
-}
-
-function markElementAsDone(/* id */) {
-  //zaznacz element jako wykonany (podmień klasę CSS)
-}
-
+/**************************************************************/
+/* INIT */
 document.addEventListener('DOMContentLoaded', main);

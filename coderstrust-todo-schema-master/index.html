@@ -7,19 +7,21 @@
   </head>
   <body>
 
-    <form id="addForm" class="header"><br>
+  <form id="addForm" class="header"><br>
       <h2 class='h2-top'>Moja lista do zrobienia</h2>
       <input type="text" id="myInput" placeholder="Lista do zrobienia">
-      <span id="addTodo" class="addBtn">Add</span>
-    </form>
+      <span id="addTodo" class="addBtn"> 
+        <input type="submit" value="Dodaj mnie" />
+      </span>
+  </form>
 
-      <h1> To Do lista </h1>
-  <div id="toDoListWrapper">
+<div id="toDoListWrapper">
+    <h1> To Do lista </h1>
       <ul id="list">
 
         <form id="toDo" >
             <input id=toDoInput">
-            <button type="button" onclik="toList()">Dodaj mnie</button>
+            <button type="button" onclik="toList()">Usun</button>
         </form>    
        </ul>
 
@@ -36,7 +38,7 @@
         </div>
       </div>
     </div>
-  </div>  
+</div>  
     <script src="scripts/script.js"></script>
   </body>
 </html>

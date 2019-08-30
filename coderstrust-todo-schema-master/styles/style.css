@@ -7,14 +7,18 @@ body {
 * {
   box-sizing: border-box;
 }
-
 /* Remove margins and padding from the list */
+#addForm { 
+  max-width: 400px; margin: 5px auto; 
+}
+#toDoListWrapper {
+   max-width: 400px; margin: 10px auto; 
+  }
+.h2-top{margin:2px auto;}
+
 ul {
   margin: 5%;
   padding: 0%;
-}
-#addForm { 
-  max-width: 400px; margin: 10px auto; 
 }
 #toDForm{
   display:block;
@@ -23,9 +27,6 @@ ul {
   padding:6px 12px;
   font-size:18px;
 }
-#toDoListWrapper {
-   max-width: 400px; margin: 10px auto; 
-  }
 
 /* The Modal (background) */
 .modal {
