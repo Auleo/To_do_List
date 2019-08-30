@@ -93,6 +93,7 @@ function createElement(title /* Title, author, id */) {
  * Działa po kliknieciu submit w formularzu dodawania nowego itema
  */
 function addNewTodoToList(event) {
+    console.log($myInput.value);
   if ($myInput.value.trim()) {
     addNewElementToList($myInput.value);
     $myInput.value = '';
@@ -170,7 +171,7 @@ function prepareInitialList() {
 }
 /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
 function addNewElementToList(title) {
-  $list.appendChild(createElement('nowy', 2));
+  $list.appendChild(createElement(title));
 }
   function toDo() {
       let  test = document.getElementById("toDoInput").nodeValue
@@ -199,7 +200,7 @@ function createElement(title) {
 
     return newElement;
   }
-  return false;
+  return false;:)
 }
 
 function listClickManager(/* event- event.target */) {
