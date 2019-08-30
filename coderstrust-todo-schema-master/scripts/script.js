@@ -38,7 +38,7 @@ function prepareDOMEvents() {
   // Przygotowanie listenerów
   $list.addEventListener('click', listClickManager);
   $addTodoBtn.addEventListener('click', addNewTodoToList);
-  $addForm.addEventListener('submit', addNewTodoToList);
+  $addForm.addEventListener('submit', addNewTodoToList(event));
 }
 /*
 function prepareDOMEvents() {
@@ -97,7 +97,7 @@ function addNewTodoToList(event) {
     addNewElementToList($myInput.value);
     $myInput.value = '';
   }
-  event.preventDafault();
+  event.preventDefault();
 }
 
 function listClickManager(event) {
