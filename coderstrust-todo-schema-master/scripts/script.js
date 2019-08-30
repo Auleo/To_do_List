@@ -162,7 +162,7 @@ function markElementAsDone(/* id */) {
 }
 
 
-function prepareInitialList() {
+//function prepareInitialList() {
  /* let newElement = document.createElement('li');
   newElement.className = 'text-item';
   newElement.id= 'test10;'
@@ -174,7 +174,7 @@ function prepareInitialList() {
     addNewElementToList(todo);
 
   });*/
-}
+//}
 /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
 function addNewElementToList(title) {
   $list.appendChild(createElement(title));
@@ -201,8 +201,11 @@ function createElement(title) {
   // return newElement
   if (title != '') {
     const newElement = document.createElement('li');
+    const delBtn = document.createElement('span');
+    delBtn.innerText = '(usuń)';
     newElement.innerText = title;
-    //newElement.innerText = document.createElement('span')
+    newElement.appendChild(delBtn);
+
 
     return newElement;
   }
