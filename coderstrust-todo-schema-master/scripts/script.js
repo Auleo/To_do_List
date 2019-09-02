@@ -116,7 +116,7 @@ function addNewTodoToList(event) {
     console.log($myInput.value);
   if ($myInput.value.trim()) {
     addNewElementToList($myInput.value);
-    $myInput.value = '';
+    $myInput.value = '<hr>';
   }
   event.preventDefault();
 }
