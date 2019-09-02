@@ -18,7 +18,7 @@ function main() {
 function List(){
   let item = document.getElementById("todoInpot").value;
   let text = document.createTextNode(item);
-  let newItem = document.createElement('li');
+  let newItem = document.createElement('li <hr>');
   newItem.appendChild(text);
   document.getElementById("todoList").appendChild(newItem);
 }
@@ -59,6 +59,19 @@ function prepareDOMEvents() {
   });
   }
 */
+
+function prepareEvents(){
+  rootElement.addEventListener('clik', function(e) {
+    if (e.target.nodeName.toLowerCase() === 'li') {
+      if( counter > 10 ) { 
+        rootElement.removeChild(e.target);
+    }   else {
+        counter++
+    }
+  }
+});
+}
+
 function prepareInitialList() {
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
   initialList.forEach( todo );
