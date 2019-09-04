@@ -2,7 +2,7 @@
 // np. lista czy input do wpisywania nowego todo
 let $list;
 let lastID = 0 ;
-let $popupInput;
+/*let $popupInput;*/
 const $addForm = document.getElementById('addForm');
 const initialList = [
   'Dzisiaj robię usuwanie',
@@ -14,6 +14,10 @@ function main() {
   prepareDOMEvents();
   prepareInitialList();
 }
+
+
+
+
 
 function List(){
   let item = document.getElementById("todoInpot").value;
@@ -43,7 +47,7 @@ function prepareDOMEvents() {
   $addTodoBtn.addEventListener('click', addNewTodoToList);
   $addForm.addEventListener('submit', addNewTodoToList(event));
 }
-
+/*
 function prepareDOMEvents() {
   let liCollection = document.querySelectorAll('.test-item[i]');
   console.log('.test-item[i]+1');  
@@ -58,7 +62,7 @@ function prepareDOMEvents() {
     $list.addEventListener('click', listClickManager);
   });
   }
-
+*/
 
 function prepareEvents(){
   rootElement.addEventListener('clik', function(e) {
@@ -77,6 +81,8 @@ function prepareInitialList() {
   initialList.forEach( todo );
 }
 
+
+
 function todo(element, index, tablica) {
   console.log('init: '+element);
   addNewElementToList(element);
@@ -88,27 +94,27 @@ function addNewElementToList(title   /* Title, author, id */) {
   const newElement = createElement(title);
   $list.appendChild(newElement);
 }
-
-function createElement(title Title, author, id ) {
+/*
+function createElement(title /* Title, author, id ) {
   // Tworzyc reprezentacje DOM elementu return newElement
   // return newElement
- // const newElement = document.createElement('li');
- // newElement.id = 'todo-' + (++lastId);
-  const titleElement = document.createElement('li');
+
+  const newElement = document.createElement('li');
+  newElement.id = 'todo-' + (++lastId);
+
+  const titleElement = document.createElement('span');
   titleElement.innerText = title;
 
   const delButton = document.createElement('button');
   delButton.innerText = 'delete';
   delButton.className = 'btn-delete';
 
-  return newElement;
-}
   newElement.appendChild(titleElement);
   newElement.appendChild(delButton);
 
   return newElement;
 }
-
+*/
 /**
  * Działa po kliknieciu submit w formularzu dodawania nowego itema
  */
@@ -177,7 +183,7 @@ function markElementAsDone(/* id */) {
 
 
 //function prepareInitialList() {
- let newElement = document.createElement('li');
+ /* let newElement = document.createElement('li');
   newElement.className = 'text-item';
   newElement.id= 'test10;'
   newElement.innerText = 'item 10';
@@ -187,7 +193,7 @@ function markElementAsDone(/* id */) {
   initialList.forEach(todo => {
     addNewElementToList(todo);
 
-  });
+  });*/
 //}
 /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
 function addNewElementToList(title) {
