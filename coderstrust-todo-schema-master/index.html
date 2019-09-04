@@ -6,13 +6,13 @@
     <title>To do list</title>
   </head>
   <body>
-
-  <form id="addForm" class="header"><br>
+      <form id="addForm" class="header"><br>
+      <center>
       <h2 class='h2-top'>Moja lista do zrobienia</h2>
-      <input type="text" id="myInput" placeholder="Lista do zrobienia">
+      <input type="text" id="myInput" placeholder="Moja lista">
       <span id="addTodo" class="addBtn"> 
         <input type="submit" value="Dodaj mnie" />
-      </span>
+      </center></span>
   </form>
 <div id='lis'>
   <div id="toDoListWrapper">
@@ -23,7 +23,7 @@
           
     <form id="toDo" >
       <input id=toDoInput">
-        <button type="button" onclik="toList()">Usun</button>
+        <button type="button"  placeholder="nie działa"onclik="toList()">Usun</button>
     </form> 
        </ul>
 
@@ -42,6 +42,30 @@
       </div>
     </div>
 </div>
+
+<html>
+  <head>
+    <title>Testowa strona</title>
+  </head>
+  <body>
+    <button id="show-modal">Pokaż/Ukryj modal</button>
+    <p>
+      tekst <span>tekst 2</span>
+    </p>
+    <ul id="list">
+      <li>Test 1</li>
+      <li>Test 2</li>
+      <li>Test 3</li>
+    </ul>
+    <div id="modal" class="modal">
+      Testowy modal
+      <form>
+        <input type="text" placeholder="Wpisz swoje imię" />
+        <button id="console-modal">show</button>
+      </form>
+    </div>
+  </body>
+</html>
 
 </div>
     <script src="scripts/script.js"></script>
