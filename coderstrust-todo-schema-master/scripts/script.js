@@ -131,6 +131,7 @@ function listClickManager(event) {
 
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
   // event.target.parentElement.id
+  
   let id = event.target.parentElement.id;
 
   if (event.target.className === 'btn-delete') {
