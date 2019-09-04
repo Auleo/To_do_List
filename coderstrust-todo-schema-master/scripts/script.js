@@ -116,7 +116,7 @@ function addNewTodoToList(event) {
     console.log($myInput.value);
   if ($myInput.value.trim()) {
     addNewElementToList($myInput.value);
-    $myInput.value = '<hr>';
+    $myInput.value = '';
   }
   event.preventDefault();
 }
@@ -149,6 +149,9 @@ function editListElement(id, title) {
   $popupInput.value = title;
 }
 
+
+
+
 function addDataToPopup(/* Title, author, id */) {
   // umieść informacje w odpowiednim miejscu w popupie
 }
@@ -177,7 +180,7 @@ function markElementAsDone(/* id */) {
 
 
 //function prepareInitialList() {
- /* let newElement = document.createElement('li');
+ /* let newElement + HTML<hr>= document.createElement('li');
   newElement.className = 'text-item';
   newElement.id= 'test10;'
   newElement.innerText = 'item 10';
@@ -199,6 +202,7 @@ function addNewElementToList(title) {
       let  newItem = document.createElement('li')
       newItem.appendChild(text)
       document.getElementById("toDo").appendChild(newItem)
+      document.getElementById("").appendChild(newItem)
     
     }
 

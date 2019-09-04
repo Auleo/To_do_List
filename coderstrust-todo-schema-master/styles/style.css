@@ -44,7 +44,7 @@ ul {
   background:url(https://picsum.photos/id/208/2500/1300) no-repeat center center;
 }
 #myModal{
- background-color: rgb(122, 136, 122);
+ background-color: rgb(211, 247, 211);
  
 }
 /* Modal Content */
@@ -63,7 +63,6 @@ ul {
   font-size: 28px;
   font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
   color: #000;
@@ -72,5 +71,9 @@ ul {
 }
 #list{
   margin:10px;
-  margin-left:20px;
+  margin-left:5px;
+}
+li {
+padding:2%;
+border-bottom:1px solid lightgreen;
 }
