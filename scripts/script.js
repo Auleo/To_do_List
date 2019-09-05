@@ -43,7 +43,7 @@ function prepareDOMElements() {
 }
 function prepareDOMEvents() {
   // Przygotowanie listenerów
-  $list.addEventListener('click', listClickManager);
+  /*$list.addEventListener('click', listClickManager); */
   $addTodoBtn.addEventListener('click', addNewTodoToList);
   $addForm.addEventListener('submit', addNewTodoToList(event));
 }
@@ -74,6 +74,11 @@ function prepareEvents(){
   }
 });
 }
+
+
+  function let id = event.target.parentElement.id;
+  if (event.target.className === 'btn-delete') {
+    removeListElement(id);
 
 function prepareInitialList() {
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
