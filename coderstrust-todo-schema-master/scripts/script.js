@@ -81,8 +81,6 @@ function prepareInitialList() {
   initialList.forEach( todo );
 }
 
-
-
 function todo(element, index, tablica) {
   console.log('init: '+element);
   addNewElementToList(element);
@@ -131,7 +129,6 @@ function listClickManager(event) {
 
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
   // event.target.parentElement.id
-  
   let id = event.target.parentElement.id;
 
   if (event.target.className === 'btn-delete') {
@@ -184,7 +181,7 @@ function markElementAsDone(/* id */) {
 
 
 //function prepareInitialList() {
- /* let newElement = document.createElement('li');
+  let newElement = document.createElement('li');
   newElement.className = 'text-item';
   newElement.id= 'test10;'
   newElement.innerText = 'item 10';
@@ -194,7 +191,7 @@ function markElementAsDone(/* id */) {
   initialList.forEach(todo => {
     addNewElementToList(todo);
 
-  });*/
+  });
 //}
 /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
 function addNewElementToList(title) {
@@ -239,18 +236,18 @@ function createElement(title) {
   return false;
 }
 
-function listClickManager(/* event- event.target */) {
+function listClickManager( event-event.target) {
   event.target.parentElement.id
-  if (event.target.className === 'test-item') { editListElement(id) }
+  if (event.target.className === 'item') { editListElement(id) }
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
  
 }
 
-function removeListElement(/* id */) {
+function removeListElement(id) {
   // Usuwanie elementu z listy
 }
 
-function editListElement(/* id */) {
+function editListElement( id ) {
   // Pobranie informacji na temat zadania
   // Umieść dane w popupie
 }
