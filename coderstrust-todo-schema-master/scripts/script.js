@@ -63,7 +63,6 @@ function prepareDOMEvents() {
   });
   }
 */
-
 function prepareEvents(){
   rootElement.addEventListener('clik', function(e) {
     if (e.target.nodeName.toLowerCase() === 'li') {
