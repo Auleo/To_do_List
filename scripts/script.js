@@ -2,7 +2,6 @@
 // np. lista czy input do wpisywania nowego todo
 let $list;
 let lastID = 0 ;
-/*let $popupInput;*/
 const $addForm = document.getElementById('addForm');
 const initialList = [
   'Dzisiaj robię usuwanie',
@@ -14,27 +13,20 @@ function main() {
   prepareDOMEvents();
   prepareInitialList();
 }
-
-
-
-
-
-function List(){
+/*function List(){
   let item = document.getElementById("todoInpot").value;
   let text = document.createTextNode(item);
   let newItem = document.createElement('li');
   newItem.appendChild(text);
   document.getElementById("todoList").appendChild(newItem);
-}
+} */
   // To będzie idealne miejsce do pobrania naszychlet $list;
 let $popupInput;
 let $addTodoBtn;
 let $myInput;
 
 function prepareDOMElements() {
-  // const container = document.querySelector('#list');
-  // const headlines = container.querySelectorAll('li');
-  // To będzie idealne miejsce do pobrania naszych elementów z drzewa DOM i zapisanie ich w zmiennych
+ // To będzie idealne miejsce do pobrania naszych elementów z drzewa DOM i zapisanie ich w zmiennych
   $list = document.getElementById('list');
   $popupInput = document.getElementById('popupInput');
   $addTodoBtn = document.getElementById('addTodo');
@@ -43,26 +35,11 @@ function prepareDOMElements() {
 }
 function prepareDOMEvents() {
   // Przygotowanie listenerów
-  /*$list.addEventListener('click', listClickManager); */
-  $addTodoBtn.addEventListener('click', addNewTodoToList);
+  // Dodawania nowego elementu listy todo po kliknieciu submita w formularzu
   $addForm.addEventListener('submit', addNewTodoToList(event));
-}
-/*
-function prepareDOMEvents() {
-  let liCollection = document.querySelectorAll('.test-item[i]');
-  console.log('.test-item[i]+1');  
-  liCollection.forEach(function (li , index) {
-    li.addEventListener('click', function() {
-      console.log(index +1);      
-    });
 
-    // Przygotowanie listenerów
-    let rootElement = document.querySelector('ul');
-    let liCollection =document.querySelectorAll('.item-item');{
-    $list.addEventListener('click', listClickManager);
-  });
-  }
-*/
+}
+
 function prepareEvents(){
   rootElement.addEventListener('clik', function(e) {
     if (e.target.nodeName.toLowerCase() === 'li') {
@@ -74,25 +51,56 @@ function prepareEvents(){
   }
 });
 }
-
-
-  function let id = event.target.parentElement.id;
+/*  function let id = event.target.parentElement.id;
   if (event.target.className === 'btn-delete') {
     removeListElement(id);
-
+  }*/
 function prepareInitialList() {
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
   initialList.forEach( todo );
+  /* Evil clicker */
+    console.log($list.children.length);
+  for (i = 0; i < $list.children.length; i += 1) {
+    console.log(i);
+    console.log($list.children[i].children[0]);
+    /*$list.children[i].children[0].addEventListener(
+      'click',
+      removeListElement(
+        $list.children[i].children[0].getAttribute('data-targetId')
+      )
+    );*/
+  }
 }
+/*
+e.preventDefault();
+{
+  if ($myInput.value.trim() !=='') { 
+    $form.addEventListener('submit', function(e) {
+      e.preventDefault(); {
+        if ($myInput.value.trim() !=='') {
+          sendTodoToServer();
+        }
+      }
+    }); 
+  }
+}
+$todoInput.addEventListener('keydown', function(event){
+  // if(event.keyCode == 13){
+  // addNewElementToList(todo);
+// } 
+*/
+
+
+
 
 function todo(element, index, tablica) {
-  console.log('init: '+element);
+  console.log('init: '+ element);
   addNewElementToList(element);
 }
 
-function addNewElementToList(title   /* Title, author, id */) {
-  //obsługa dodawanie elementów do listy
-  // $list.appendChild(createElement('nowy', 2))
+/* Treść pola input pobrana wcześniej przekazana jako parametr */
+function addNewElementToList(title) {
+  // obsługa dodawanie elementów do listy
   const newElement = createElement(title);
   $list.appendChild(newElement);
 }
@@ -121,21 +129,23 @@ function createElement(title /* Title, author, id ) {
  * Działa po kliknieciu submit w formularzu dodawania nowego itema
  */
 function addNewTodoToList(event) {
-    console.log($myInput.value);
-  if ($myInput.value.trim()) {
-    addNewElementToList($myInput.value);
-    $myInput.value = '';
-  }
+  // Przerywa wysyłanie sie formularza po klikniciu "Dodaj mnie"
   event.preventDefault();
+  console.log($myInput.value);
+  let inputValue = $myInput.value.trim();
+  if (inputValue !== false && inputValue !== "") { 
+    addNewElementToList($myInput.value);
+  }
+  $myInput.value = '';
 }
 
+/*
 function listClickManager(event) {
-
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
   // event.target.parentElement.id
   let id = event.target.parentElement.id;
 
-  if (event.target.className === 'btn-delete') {
+  /*if (event.target.className === 'btn-delete') {
     removeListElement(id);
   } else if (event.target.className === 'btn-edit') {
     let title = document.querySelector('#' + id).querySelector('span').innerText;
@@ -143,7 +153,7 @@ function listClickManager(event) {
   } else if (event.target.className === 'btn-done') {
   
   }
-}
+}*/
 
 function removeListElement(id) {
   let liElement = document.querySelector('#' + id);
@@ -184,7 +194,7 @@ function markElementAsDone(/* id */) {
 }
 
 
-//function prepareInitialList() {
+/*function prepareInitialList() {
   let newElement = document.createElement('li');
   newElement.className = 'text-item';
   newElement.id= 'test10;'
@@ -196,7 +206,7 @@ function markElementAsDone(/* id */) {
     addNewElementToList(todo);
 
   });
-//}
+}*/
 /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
 function addNewElementToList(title) {
   $list.appendChild(createElement(title));
@@ -223,34 +233,29 @@ function createElement(title) {
   // return newElement
   if (title != '') {
     const newElement = document.createElement('li');
-
-    let date = new Date();
-    let timestamp = 'uniqId'+date.getTime();
-
-
+    let curentDate = new Date();
+    let uniqId = 'uniqId'+curentDate.getTime();
+    newElement.setAttribute('id',uniqId);
     // dodawanie do li id 
-    const delBtn = document.createElement('span');
-    delBtn.innerText = '(usuń)';
+    const delBtn = document.createElement('button');
+    delBtn.setAttribute('data-targetId',uniqId);
+    delBtn.innerText = 'Usuń';
+    
     newElement.innerText = title;
     newElement.appendChild(delBtn);
-
 
     return newElement;
   }
   return false;
 }
-
+/*
 function listClickManager( event-event.target) {
   event.target.parentElement.id
   if (event.target.className === 'item') { editListElement(id) }
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
  
 }
-
-function removeListElement(id) {
-  // Usuwanie elementu z listy
-}
-
+*/
 function editListElement( id ) {
   // Pobranie informacji na temat zadania
   // Umieść dane w popupie

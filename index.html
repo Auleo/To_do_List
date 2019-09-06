@@ -3,55 +3,40 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <title>To do list</title>
-  </head>
+    </head>
   <body>
-      <form id="addForm" class="header"><br>
-      <center>
-      <h2 class='h2-top'>Moja lista do zrobienia</h2>
-      <input type="text" id="myInput" placeholder="Moja lista">
-      <span id="addTodo" class="addBtn"> 
-        <input type="submit" value="Dodaj mnie" />
-      </center></span>
+      <form id="addForm" class="header">
+        <br>
+        <h2 class='h2-top'>Lista do zrobienia</h2>
+        <input type="text" id="myInput" placeholder="Moja lista">
+        <span id="addTodo" class="addBtn"> 
+          <input type="submit" value="Dodaj mnie"/>
+        </span>
       </form>
-<div id='lis'>
+<div id='list-wrapper'>
   <div id="toDoListWrapper">
     <h1> To Do lista </h1>
-      <ul id="list">
-        <li class="test-item" id="test1"> info</li>
-    
-    <form id="event" >
-      <input id=event">
-        <button type="button"  placeholder="Usuń"  btn-delete="btn-delete()">Usun</button>
-    </form> 
-       </ul>
-
+      <ul id="list"></ul>
     <div id="myModal" class="modal">
-      
       <!-- Modal content -->
       <div class="modal-content">
         <span id="closePopup" class="close">
           popup
         </span>
         <div>
-          <input type="text" id="popupInput" placeholder="Co kupić">
-          <button id="btn__cancel" class="btn-delete()">Usuń</button>
-          <button id="btn__done" class="addBtn"></button>Potwierdz</button>
+    <input type="text" id="popupInput" placeholder="Co kupić">
+    <button id="btn__cancel" class="btn-delete()">Usuń</button>
+    <button id="btn__done" class="addBtn"></button>Potwierdz</button>
         </div>
       </div>
     </div>
 </div>
-
-<html>
-  <head>
-    <title>Testowa strona</title>
-  </head>
-  <body>
+<!--
     <button id="show-modal">Pokaż/Ukryj modal</button>
     <p>
       tekst <span>tekst 2</span>
     </p>
-    <ul id="list">
+    <ul id="list2">
       <li>Test 1</li>
       <li>Test 2</li>
       <li>Test 3</li>
@@ -63,9 +48,8 @@
         <button id="console-modal">show</button>
       </form>
     </div>
-  </body>
-</html>
 
+--->
 </div>
     <script src="scripts/script.js"></script>
   </body>
