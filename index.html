@@ -7,49 +7,46 @@
   <body>
       <form id="addForm" class="header">
         <br>
-        <h2 class='h2-top'>Lista do zrobienia</h2>
-        <input type="text" id="myInput" placeholder="Moja lista">
-        <span id="addTodo" class="addBtn"> 
-          <input type="submit" value="Dodaj mnie"/>
-        </span>
+
       </form>
 <div id='list-wrapper'>
+
   <div id="toDoListWrapper">
+  
     <h1> To Do lista </h1>
-      <ul id="list"></ul>
+
+      <ul id="list">
+        
+        <h2 class='h2-top'>Lista do zrobienia</h2>
+        <input type="text" id="myInput" placeholder="Moja lista">
+       
+        <span id="addTodo" class="addBtn"> 
+        <input type="submit" value="Dodaj mnie"/>
+        </span> 
+        <li class="test-item" id="test1" > Item 1</li> 
+        <li class="test-item" id="test2" > Item 2</li>
+        <li class="test-item" id="test3" > Item 3</li>
+        <li class="test-item" id="test4" > Item 4</li>
+        <li class="test-item" id="test5" > Item 5</li>
+      </ul>
+
     <div id="myModal" class="modal">
+
       <!-- Modal content -->
       <div class="modal-content">
         <span id="closePopup" class="close">
           popup
         </span>
-        <div>
-    <input type="text" id="popupInput" placeholder="Co kupić">
+   <div>
+    <input type="text" id="popupInput" placeholder="Co kupić">  
     <button id="btn__cancel" class="btn-delete()">Usuń</button>
     <button id="btn__done" class="addBtn"></button>Potwierdz</button>
-        </div>
+  
+  </div>
       </div>
-    </div>
+  </div>
 </div>
-<!--
-    <button id="show-modal">Pokaż/Ukryj modal</button>
-    <p>
-      tekst <span>tekst 2</span>
-    </p>
-    <ul id="list2">
-      <li>Test 1</li>
-      <li>Test 2</li>
-      <li>Test 3</li>
-    </ul>
-    <div id="modal" class="modal">
-      Testowy modal
-      <form>
-        <input type="text" placeholder="Wpisz swoje imię" />
-        <button id="console-modal">show</button>
-      </form>
-    </div>
 
---->
 </div>
     <script src="scripts/script.js"></script>
   </body>

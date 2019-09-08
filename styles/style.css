@@ -54,6 +54,9 @@ ul {
   border: 1px solid #888;
   width: 80%;
 }
+.modal__input--green{
+  
+}
 
 /* The Close Button */
 .close {
@@ -76,10 +79,6 @@ li {
 padding:2%;
 border-bottom:1px solid lightgreen;
 }
-
-
-
-
 button {
   font-size: 17px;
 }
@@ -103,11 +102,9 @@ button {
 .form__div__input {
   
 }
-
 .modal__input--green {
   
 }
-
 ul li:nth-child(n + 1) {
   background:rgb(244, 250, 250);
 }
@@ -115,21 +112,6 @@ ul li:nth-child(n + 1) {
 ul li:nth-child(even) {
   background:rgb(238, 253, 238);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #lis{ border: 2px dotted rgb(31, 197, 44);
       border-radius: 12px; 
     }
