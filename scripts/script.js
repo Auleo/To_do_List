@@ -90,7 +90,6 @@ liColection.forEach( function (li) {
   li.addEventListener('click', function() {
   console.log( index + 1);
 })
-
 /*btn.addEventListener('click, function(event) { 
   event.preventDefault();'
   
