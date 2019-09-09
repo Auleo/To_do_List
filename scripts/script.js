@@ -12,8 +12,34 @@ const initialList = [
 function main() {
   prepareDOMElements();
   prepareDOMEvents();
-  prepareInitialList();
+ // prepareInitialList();
 }
+
+
+function prepareDOMElements() {
+  // To będzie idealne miejsce do pobrania naszych elementów z drzewa DOM i zapisanie ich w zmiennych
+   $list = document.getElementById('list');
+   $modal = document.querySelector('#modal');
+   $buttonModal = document.querySelector('#show-modal');
+   $buttonConsole = document.querySelector('#console-modal');
+   $form = document.querySelector('form');
+}
+function prepareDOMEvents() {
+  $buttonModal.addEventListener('click, function () {
+  $modal.classList.togglr('modal--show');
+  });
+
+
+$form.addEventListener('submit', function (zmienna) {
+zmienna.preventDefault();
+
+if ($input.value.trim() !== '') {
+  $list.querySelector('li).innerHtml = $inputvalue;
+  $modal.classList.remove('modal-show');
+} else {
+  console.log('hej co robisz ');
+}
+});
 /*function List(){
   let item = document.getElementById("todoInpot").value;
   let text = document.createTextNode(item);
@@ -22,16 +48,17 @@ function main() {
   document.getElementById("todoList").appendChild(newItem);
 } */
   // To będzie idealne miejsce do pobrania naszychlet $list;
-let $popupInput;
+/* let $popupInput;
 let $addTodoBtn;
 let $myInput;
+
 function prepareDOMElements() {
  // To będzie idealne miejsce do pobrania naszych elementów z drzewa DOM i zapisanie ich w zmiennych
   $list = document.getElementById('list');
   $popupInput = document.getElementById('popupInput');
   $addTodoBtn = document.getElementById('addTodo');
   $myInput = document.getElementById('myInput'); //=< kasowac
-}
+} */
   // Przygotowanie listenerów
   // Dodawania nowego elementu listy todo po kliknieciu submita w formularzu
   //$addForm.addEventListener('submit', addTodo(event)); */

@@ -46,6 +46,10 @@ ul {
  background-color: rgb(211, 247, 211);
  
 }
+
+ul li:nth-child(n + 1) {
+  background: yellow;
+}
 /* Modal Content */
 .modal-content {
   background-color:lightgreen;
