@@ -4,42 +4,64 @@
 // np. lista czy input do wpisywania nowego todo
 let $list;
 let lastID = 0 ;
-const $addForm = document.getElementById('addForm');
+let $addForm;
+let rootElement;
+let liCollection = document.querySelectorAll('.test-item ');
+
 const initialList = [
   'Dzisiaj robię usuwanie',
   'Nakarm psa'
   ];
-function main() {
-  prepareDOMElements();
-  prepareDOMEvents();
- // prepareInitialList();
-}
 
+/* Funkcje */
+function main() {
+  // Przypisuje do zmiennych/stałych kotwice do elementów html(DOM)
+  prepareDOMElements();
+
+  // Deklaruje obsługe eventów np klinicia itp
+  prepareDOMEvents();
+
+  // Wczytuje liste startową
+  prepareInitialList();
+}
 
 function prepareDOMElements() {
   // To będzie idealne miejsce do pobrania naszych elementów z drzewa DOM i zapisanie ich w zmiennych
-   $list = document.getElementById('list');
-   $modal = document.querySelector('#modal');
-   $buttonModal = document.querySelector('#show-modal');
-   $buttonConsole = document.querySelector('#console-modal');
-   $form = document.querySelector('form');
+  $list = document.getElementById('list');
+  $modal = document.getElementById('modal');
+  //$buttonModal = document.querySelector('#show-modal');
+  //$buttonConsole = document.querySelector('#console-modal');
+  $addForm = document.getElementById('addForm');
 }
+
 function prepareDOMEvents() {
-  $buttonModal.addEventListener('click, function () {
-  $modal.classList.togglr('modal--show');
+  // Pokaż/ukruj dialog
+  /*$buttonModal.addEventListener('click', function () {
+    $modal.classList.togglr('modal--show');
+  });*/
+
+  // Wysyłanie (dodaweanie do listy) wpisu z formularza
+  $addForm.addEventListener('submit', function (zmienna) {
+
+    zmienna.preventDefault();
+    if ($input.value.trim() !== '') {
+      $list.querySelector('li').innerHtml = $inputvalue;
+      $modal.classList.remove('modal-show');
+    } else {
+      console.log('hej co robisz ');
+    }
   });
+   /*rootElement.addTodo('clik', function( addTodo ) {
+    if (list.target.nodeName.addTodo() === 'li') {
+      if( counter > i ) { 
+        rootElement.addTodo();
+      } else {
+        counter++
+      }
+    }
+  });*/
+};
 
-
-$form.addEventListener('submit', function (zmienna) {
-zmienna.preventDefault();
-
-if ($input.value.trim() !== '') {
-  $list.querySelector('li).innerHtml = $inputvalue;
-  $modal.classList.remove('modal-show');
-} else {
-  console.log('hej co robisz ');
-}
-});
 /*function List(){
   let item = document.getElementById("todoInpot").value;
   let text = document.createTextNode(item);
@@ -62,17 +84,7 @@ function prepareDOMElements() {
   // Przygotowanie listenerów
   // Dodawania nowego elementu listy todo po kliknieciu submita w formularzu
   //$addForm.addEventListener('submit', addTodo(event)); */
-function prepareDOMEvents() {
-  rootElement.addTodo('clik', function( addTodo ) {
-    if (list.target.nodeName.addTodo() === 'li') {
-      if( counter > i ) { 
-        rootElement.addTodo();
-    }   else {
-        counter++
-    }
-  }
-});
-}
+
 function createElement(title) {
   // Tworzyc reprezentacje DOM elementu return newElement
   // return newElement
@@ -98,35 +110,32 @@ function listClickManager(id target) {
   event.target.parentElement.id
   if (event.target.className === 'item') { 
     editListElement(id) 
-   
   } 
 
- function removeListElement = event.target.parentElement.id;
+  function removeListElement = event.target.parentElement.id;
   if (event.target.className === 'btn-delete') {
     removeListElement(id);
   }  
   
 let btn = document.querySelector('button');
 btn.addEventListener('click", function () );
- console.log ('rmove')
+  console.log ('rmove')
 }
  */
-
-let liCollection = document.querySelectorAll('.test-item ');
-liColection.forEach( function (li) {
+liCollection.forEach( function (li) {
   li.addEventListener('click', function() {
-  console.log( index + 1);
+    console.log( index + 1);
+  })
 })
 /*btn.addEventListener('click, function(event) { 
-  event.preventDefault();'
-  
- )
+  event.preventDefault();' 
+)
 */
 function prepareInitialList() {
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy  */
   initialList.forEach( todo );
   /* Evil clicker */
- console.log($list.children.length);
+  console.log($list.children.length);
   for (i = 0; i < $list.children.length; i += 1) {
     console.log(i);
     console.log($list.children[i].children[0]);
@@ -135,30 +144,21 @@ function prepareInitialList() {
       removeListElement(
         $list.children[i].children[0].getAttribute('data-targetId')
       )
-    )};
-
-
-
-List.preventDefault();
-{
-  if ($myInput.value.trim() !=='') { 
-    $form.addEventListener('submit', function(e) {
-      e.preventDefault(); {
-        if ($myInput.value.trim() !=='') {
-          sendTodoToServer();
-        }
-      }
-    }); 
-  }
+    )
+  };
+  // List.preventDefault();
+  $addTodo.addEventListener('keydown', function(event){
+    if(event.keyCode == 13){
+      addNewElementToList(addTodo);
+    } 
+  });
 }
-$addTodo.addEventListener('keydown', function(event){
- if(event.keyCode == 13){
- addNewElementToList(addTodo);
- } 
+
 function addTodo(element, index, tablica) {
   console.log('init: '+ element);
   addNewElementToList(element);
 }
+
 /* Treść pola input pobrana wcześniej przekazana jako parametr */
 function addNewElementToList(title) {
   // obsługa dodawanie elementów do listy
@@ -186,8 +186,7 @@ function addNewElementToList(title) {
   return newElement;
 } */
 
- /* Działa po kliknieciu submit w formularzu dodawania nowego itema
- */
+/* Działa po kliknieciu submit w formularzu dodawania nowego itema */
 function listClickManager(event) {
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
   // event.target.parentElement.id
@@ -203,11 +202,11 @@ function listClickManager(event) {
   }
 }
 
-
 function removeListElement(id) {
   let liElement = document.querySelector('#' + id);
   $list.removeChild(liElement);
 }
+
 function editListElement(id, title) {
   // Pobranie informacji na temat zadania
   // Umieść dane w popupie
@@ -215,9 +214,8 @@ function editListElement(id, title) {
   $popupInput.value = title;
 }
 
-
 /*
-function addDataToPopup(/* Title, author, id */) {
+function addDataToPopup(/* Title, author, id */ /*) {
   // umieść informacje w odpowiednim miejscu w popupie
 }
 /*
@@ -255,10 +253,12 @@ function prepareInitialList() {
 
   });
 }
- To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
+
+To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
 /*function addNewElementToList(title) {
   $list.appendChild(createElement(title));
 }
+
   function toDo() {
       let  test = document.getElementById("toDoInput").nodeValue
       let  text = document.createTextNode(test)
@@ -270,8 +270,8 @@ function prepareInitialList() {
  //obsługa dodawanie elementów do listy
   // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie 
   // odpowiedniej funkcji służyć bdzie do eddit i przerobienia
- }
- 
+}
+
 function editListElement( id ) {
   // Pobranie informacji na temat zadania
   // Umieść dane w popupie
@@ -279,5 +279,5 @@ function editListElement( id ) {
 
 /**************************************************************/
 /* INIT */
+
 document.addEventListener('DOMContentLoaded', main);
-)}
