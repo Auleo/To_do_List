@@ -130,11 +130,11 @@ function acceptChangeHandler() {
 function openPopup() {
   // Otwórz popup
 }
-
+/*
 function closePopup() {
   // Zamknij popup
 }
-
+*/
 function declineChanges() { //niepotrzebna raczej
   // closePopup()
 }
@@ -161,12 +161,37 @@ console.log(index +1);
   let rootElement = document.querySelector('ul');
   let liCollection = document.querySelectorAll('.item-item');{
 
-  
+ /*
   $list.addEventListener('click', listClickManager);
-
     let rootElement={ 'ul': li +1 , btn__done:'Potwierdz', btn_cancel: 'Usuń' }
   }
+*/
+let ul = { 
+    li : " $addEventListener" 
+};
+     edit.editListElement = "Edit"
+console.log(lista.keys(ul));
 
+const entries = ul.entries(edit);
+console.log('edit', edit);
+
+	for ( let  i = 0; i< entries[i].length; i++ ) {
+	console.log(entries [i][j]);
+}
+/*
+let list = { 
+  li : " $addEventListener" 
+};
+li.list = "Edit"
+
+console.log(li.keys(list));
+const entries = ul.entries(ob);
+console.log('lista', lista);
+for ( let  i = 0; i< entries.length; i++ ) {
+console.log(entries [i]);
+}
+
+  
 /*
 function prepareInitialList() {
   letnewElement = document.createElement('li');
@@ -197,7 +222,7 @@ function addNewElementToList(title   /* To Do List, Mentor Paweł / Aga. W, http
  //obsługa dodawanie elementów do listy
 function createElement(title) /* Tworzenie nowego elementu 
   // Tworzyc reprezentacje DOM elementu return newElement
-  // return newElement */
+  // return newElement 
   const newElement = document.createElement(li){ 
     console.log('li')
   newElement.innerText = title;
@@ -216,7 +241,7 @@ function listClickManager(/* event- event.target ) {
   // 
   // 
 }
-*/
+*
 function removeListElement( id ) {
     let usun = id.removeChild    {
       usun.forEach (function (listID, 
