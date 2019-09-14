@@ -2,33 +2,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="style.css" href="style.css" >
+    <link rel="stylesheet" href="styles/style.css" >
   </head>
-
-  <body>
+<body>
     <div id='listWrapper'>
       <div id="toDoListWrapper">
-        <h1> To Do lista </h1>
+        <h1> My To Do lista </h1>
+        <hr>
         <form id="addForm" class="header">
-          <input type="text" id="myInput" placeholder="Moja lista">
+          <input type="text" id="newTodoItem" placeholder="Add your list">
           <span id="addTodo" class="addBtn"> 
-            <input type="submit" value="Dodaj mnie"/>
+            <input type="submit" value=" + "/>
           </span> 
         </form>
-        <h2 class='h2-top'>Lista do zrobienia</h2>
-        <ul id="list">
-          <li class="test-item" id="test1" > Item 1</li> 
-          <li class="test-item" id="test2" > Item 2</li>
-        </ul>
+
+        <h2 class='h2-top'></h2>
+        <ul id="list"></ul>
+
         <div id="myModal" class="modal">
           <!-- Modal content -->
           <div class="modal-content">
-            <span id="closePopup" class="close">popup</span>
-            <div>
-              <input type="text" id="popupInput" placeholder="Co kupić">  
-              <button id="btn__cancel" class="btn-delete()">Usuń</button>
-              <button id="btn__done" class="addBtn"></button>Potwierdz</button>
-            </div>
+            <span id="closePopup" class="close">Zamknij</span>
           </div>
         </div>
       </div>
@@ -36,3 +30,7 @@
     <script src="scripts/script.js"></script>
   </body>
 </html>
+<!----- </div>
+--->
+
+  

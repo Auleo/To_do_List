@@ -2,6 +2,8 @@ body { margin: 0; min-width: 250px; font-family: arial; font-size: 10px; }
 h1 { font-size: 3.6rem; }
 h2 { font-size: 3.2rem; }
 ul { margin: 0; padding: 0; }
+ul li { font-size: 1.6rem; padding:2%;
+   border-bottom:1px solid lightgreen; }
 ul li:nth-child(even) {
   background: yellow;
 }
@@ -9,7 +11,7 @@ ul li:nth-child(even) {
 /* Include the padding and border in an element's total width and height */
 
 * { box-sizing: border-box; }
-#toDoListWrapper {  }
+/*#toDoListWrapper {  } */
 /* Remove margins and padding from the list */
 #addForm { border-bottom: 2px solid #ccc; padding: 0 0 5px; }
 #addForm > input { outline: none; border: 1px solid #aaa;
@@ -67,10 +69,6 @@ ul li:nth-child(even) {
 #list{
   margin:10px;
   margin-left:5px;
-}
-li {
-padding:2%;
-border-bottom:1px solid lightgreen;
 }
 button {
   font-size: 17px;

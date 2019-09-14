@@ -1,8 +1,13 @@
 // Tutaj dodacie zmienne globalne do przechowywania elementów takich jak
 // np. lista czy input do wpisywania nowego todo
 let $list;
-let lastID = 0 ;
+let lastId = 0;
+let lastID = 0;
 let $popupInput;
+// To będzie idealne miejsce do pobrania naszychlet $list;
+/* let $popupInput; SyntaxError: Identifier '$popupInput' has already been declared*/
+let $addTodoBtn;
+let $myInput;
 const initialList = ['Dzisiaj robię usuwanie', 'Nakarm psa'];
 
 function main() {
@@ -12,10 +17,33 @@ function main() {
 }
 
 function prepareDOMElements() {
-    const container = document.querySelector('#list');
-    const headlines = container.querySelectorAll('li');
-    $list = document.getElementById('list');
-    $popupInput = document.getElementById('popupinput');
+  const container = document.getElementById('list');
+  const headlines = container.querySelectorAll('li');
+  // To będzie idealne miejsce do pobrania naszych elementów z drzewa DOM i zapisanie ich w zmiennych
+  $list = document.getElementById('list');
+  $popupInput = document.getElementById('popupinput');
+  $addTodoBtn = document.getElementById('addTodo');
+  $myInput = document.getElementById('myInput'); //=< kasowac mozna jest           c*/
+}
+
+function prepareDOMEvents() {
+  // Przygotowanie listenerów
+  //$list.addEventListener('click', listClickManager);
+  //$addTodoBtn.addEventListener('click', addNewTodoToList);
+  let liCollection = document.querySelectorAll('.test-item[i]');
+  console.log('.test-item[i]+1');  
+  liCollection.forEach(function (li , index) { 
+    li.addEventListener('click', function() {
+      console.log(index +1);      
+    }
+    );
+  });
+} 
+function prepareInitialList() {
+  // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
+  initialList.forEach(todo => {
+    addNewElementToList(todo);
+  });
 }
 
 function List(){
@@ -25,36 +53,6 @@ function List(){
   newItem.appendChild(text)
   document.getElementById("todoList").appendChild(newItem)
 }
-  // To będzie idealne miejsce do pobrania naszychlet $list;
-let lastId = 0;
-/*  let $popupInput; SyntaxError: Identifier '$popupInput' has already been declared*/
-let $addTodoBtn;
-let $myInput;
-
-function main() {
-  prepareDOMElements();
-  prepareDOMEvents();
-  prepareInitialList();
-}
-
-function prepareDOMElements() {
-  // To będzie idealne miejsce do pobrania naszych elementów z drzewa DOM i zapisanie ich w zmiennych
-  $list = document.getElementById('list');
-  $popupInput = document.getElementById('popupInput');
-  $addTodoBtn = document.getElementById('addTodo');
-  $myInput = document.getElementById('myInput'); //=< kasowac mozna jest           c*/
-}
-function prepareDOMEvents() {
-  // Przygotowanie listenerów
-  $list.addEventListener('click', listClickManager);
-  $addTodoBtn.addEventListener('click', addNewTodoToList);
-}
-function prepareInitialList() {
-  // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
-  initialList.forEach(todo => {
-    addNewElementToList(todo);
-  });
-}
 
 function addNewElementToList(title   /* Title, author, id */) {
   //obsługa dodawanie elementów do listy
@@ -62,6 +60,7 @@ function addNewElementToList(title   /* Title, author, id */) {
   const newElement = createElement(title);
   $list.appendChild(newElement);
 }
+
 function createElement(title /* Title, author, id */) {
   // Tworzyc reprezentacje DOM elementu return newElement
   // return newElement
@@ -148,35 +147,26 @@ document.addEventListener('DOMContentLoaded', main);
   $list = document.getElementById('list');
 }       */
 
-function prepareDOMEvents() {
-  let liCollection = document.querySelectorAll('.test-item[i]');
-  console.log('.test-item[i]+1');  
-liCollection.forEach(function (li , index) { 
-li.addEventListener('click', function() {
-
-console.log(index +1);      
-});
 
   // Przygotowanie listenerów
   let rootElement = document.querySelector('ul');
-  let liCollection = document.querySelectorAll('.item-item');{
+  let liCollection = document.querySelectorAll('.item-item');
 
- /*
-  $list.addEventListener('click', listClickManager);
-    let rootElement={ 'ul': li +1 , btn__done:'Potwierdz', btn_cancel: 'Usuń' }
-  }
-*/
+
+  //$list.addEventListener('click', listClickManager);
+  //let rootElement={ 'ul': li +1 , btn__done:'Potwierdz', btn_cancel: 'Usuń' }
+  
+
 let ul = { 
     li : " $addEventListener" 
 };
-     edit.editListElement = "Edit"
+edit.editListElement = "Edit";
 console.log(lista.keys(ul));
 
 const entries = ul.entries(edit);
 console.log('edit', edit);
-
-	for ( let  i = 0; i< entries[i].length; i++ ) {
-	console.log(entries [i][j]);
+for ( let  i = 0; i< entries[i].length; i++ ) {
+  console.log(entries [i][j]);
 }
 /*
 let list = { 
@@ -207,9 +197,10 @@ function prepareInitialList() {
   });
 } */
 
-function addNewElementToList(title   /* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/) {
+/* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
+function addNewElementToList(title) {
   $list.appendChild(createElement('nowy', 2));
-
+}
   function toDo() {
     let  test = document.getElementById("toDoInput").nodeValue
     let  text = document.createTextNode(test)
@@ -220,10 +211,11 @@ function addNewElementToList(title   /* To Do List, Mentor Paweł / Aga. W, http
     }
 
  //obsługa dodawanie elementów do listy
-function createElement(title) /* Tworzenie nowego elementu 
+// function createElement(title) { 
+ // Tworzenie nowego elementu 
   // Tworzyc reprezentacje DOM elementu return newElement
   // return newElement 
-  const newElement = document.createElement(li){ 
+  /*const newElement = document.createElement(li){ 
     console.log('li')
   newElement.innerText = title;
     console.log(title)
