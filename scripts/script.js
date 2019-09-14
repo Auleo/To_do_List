@@ -19,7 +19,7 @@ function main() {
   prepareDOMElements();
   // Deklaruje obsługe eventów np klinicia itp
   prepareDOMEvents();
-  
+
   // Wczytuje liste startową
   prepareInitialList();
 }
@@ -63,8 +63,7 @@ function createElement(title) {
     $lastId += 1;
     newElement.setAttribute('id', 'item-' + $lastId);
     
-    // dodawanie do li id 
-
+    //     dodawanie do li id 
     const inputField = document.createElement('input');
     inputField.setAttribute('value', title);
     inputField.setAttribute('name', 'item-' + $lastId);

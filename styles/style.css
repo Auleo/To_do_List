@@ -14,8 +14,10 @@ ul li button { margin-left: 10px; color: #fff; border: none;
 .editBtn { color: #000; background: orange; }
 .deleteBtn { color: #fff; background: #990000; }
 #listWrapper { width: auto; margin: 0 auto; padding: 10px 15px; }
+
 /* Include the padding and border in an element's total width and height */
 * { box-sizing: border-box; }
+
 #toDoListWrapper {  }
 /* Remove margins and padding from the list CIASNOO */
 #addForm { border-bottom: 2px solid #ccc; padding: 0 0 5px; }
@@ -27,7 +29,7 @@ ul li button { margin-left: 10px; color: #fff; border: none;
 #addForm > span input { outline: none; border: 1px solid #333;
   padding: 0 20px; line-height: 30px; color: #fff; background: #333; }
 
-.h2-top{ justify-content: center;}
+  .h2-top{ justify-content: center;}
 
 /* The Modal  (background) */
 .modal {
