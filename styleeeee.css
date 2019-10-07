@@ -1,25 +1,18 @@
 body { margin: 0; min-width: 250px; font-family: arial; font-size: 10px; }
-h1 { font-size: 2.6rem; }
-h2 { font-size: 3.2rem; }
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.2rem; }
 ul { margin: 0; padding: 0; }
-ul li { font-size: 1.4rem; list-style-type: none;
-  border-bottom: 1px solid #aaa; padding: 10px; }
-ul li:nth-child(even) { background:#f0f08152; }
-ul li.done,
-ul li:nth-child(even).done { background: darkgray; }
-
-ul li input { line-height: 30px; text-indent: 10px; font-size: 1rem; }
-ul li button { margin-left: 10px; color: #fff; border: none;
-  line-height: 32px; padding: 0 10px; }
-.editBtn { color: #000; background: rgb(231, 183, 93); }
-.deleteBtn { color: #fff; background: #d86a6a; }
-#listWrapper { width: auto; margin: 0 auto; padding: 10px 15px; background:lightgoldenrodyellow;}
-
+ul li { font-size: 1.6rem; padding:2%;
+border-bottom:1px solid lightgreen; }
+ul li:nth-child(even) {
+  background: yellow;
+}
+#listWrapper { width: auto; margin: 0 auto; padding: 10px 15px; }
 /* Include the padding and border in an element's total width and height */
-* { box-sizing: border-box; }
 
-#toDoListWrapper {  }
-/* Remove margins and padding from the list CIASNOO */
+* { box-sizing: border-box; }
+/*#toDoListWrapper {  } */
+/* Remove margins and padding from the list */
 #addForm { border-bottom: 2px solid #ccc; padding: 0 0 5px; }
 #addForm > input { outline: none; border: 1px solid #aaa;
   padding: 0 20px; line-height: 30px; }
@@ -29,9 +22,9 @@ ul li button { margin-left: 10px; color: #fff; border: none;
 #addForm > span input { outline: none; border: 1px solid #333;
   padding: 0 20px; line-height: 30px; color: #fff; background: #333; }
 
-  .h2-top{ justify-content: center;}
+.h2-top{ justify-content: center;}
 
-/* The Modal  (background) */
+/* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -46,10 +39,9 @@ ul li button { margin-left: 10px; color: #fff; border: none;
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   background:url('https://picsum.photos/id/208/2500/1300') no-repeat center center;
 }
-#myModal{
-  background-color: rgb(211, 247, 211);
-}
-/* Modal Content  */
+#myModal{ background-color: rgb(211, 247, 211);  }
+
+/* Modal Content */
 .modal-content {
   background-color:lightgreen;
   margin: center;
@@ -57,7 +49,11 @@ ul li button { margin-left: 10px; color: #fff; border: none;
   border: 1px solid #888;
   width: 80%;
 }
-/* The Close Button ALE po co */
+.modal__input--green{
+  
+}
+
+/* The Close Button */
 .close {
   color: #aaaaaa;
   float: right;
@@ -69,6 +65,10 @@ ul li button { margin-left: 10px; color: #fff; border: none;
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+#list{
+  margin:10px;
+  margin-left:5px;
 }
 button {
   font-size: 17px;
@@ -84,10 +84,32 @@ button {
   font-size: 8px;
   background: #ccc;
 }
+
 .modal--show {
   display: block;
+  height: 5%;
+  border-block-color: red;
 }
-  /*  mobilki*/
-  @media screen and (max-width: 767px) {
-    body { font-size: 8px; }
-  }
+.form__div__input {
+  
+}
+.modal__input--green {
+  
+}
+ul li:nth-child(n + 1) {
+  background:rgb(244, 250, 250);
+}
+
+ul li:nth-child(even) {
+  background:rgb(238, 253, 238);
+}
+#lis{ border: 2px dotted rgb(31, 197, 44);
+      border-radius: 12px; 
+    }
+
+
+
+    /*  mobilki*/
+    @media screen and (max-width: 767px) {
+      body { font-size: 8px; }
+    }

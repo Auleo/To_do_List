@@ -15,7 +15,6 @@ function main() {
   prepareDOMEvents();
   prepareInitialList();
 }
-
 function prepareDOMElements() {
   const container = document.getElementById('list');
   const headlines = container.querySelectorAll('li');
@@ -100,8 +99,80 @@ function listClickManager(event) {
     let title = document.querySelector('#' + id).querySelector('span').innerText;
     editListElement(id, title);
   } else if (event.target.className === 'btn-done') {
+    
+
+    const editButton = document.createElement ('button');
+    editButton.innerText = 'edit';
+    editButton.className = 'btn-edit';
   
   }
+
+
+  const newElement = createElement (title, id, extra);
+  //
+  $list.appendChild (newElement);
+  }
+  function createElementSerwer (title) {
+  axios
+  .post ('http://195.181.210.249:3000/todo/', {title: title})
+  .then (response => {
+  if (response.data.status === 0) {
+  getItemsBySerwer ();
+  }
+  console.log (response);
+  });
+  }
+  function createElement (title, id, extra /* Title, author, id */) {
+  // Tworzy  c reprezentacje DOM elementu return newElement
+  // return newElement
+  const newElement = document.createElement ('li');
+  if (extra != null) {
+  newElement.classList.add ('done');
+  }
+  newElement.setAttribute ('data-id', id);
+  const titleElement = document.createElement ('span');
+  titleElement.innerText = title;
+
+  const titleStyle = document.createElement ('div');
+  titleStyle.className = 'btn-style';
+
+  const editButton = document.createElement ('button');
+  editButton.innerText = 'edit';
+  editButton.PUT http://195.181.210.249:3000/todo/
+  editButton.className = 'btn-edit';
+
+
+  function editButton (id, title) {
+    // Umieść dane w popupie
+    let liElement = document.querySelector ('li[data-id="' + id + '"]');
+    modal.classList.add ('modal-show');
+    console.log (liElement);
+  }
+// PUT http://195.181.210.249:3000/todo/ - aktualizuje TODO 
+//o podanym w URLu id. Aktualizacja wymaga przesłania parametru title w celu modyfikacji tytułu TODO, przykład: {"title":"test"}
+
+
+  const delButton = document.createElement ('button');
+  delButton.innerText = 'delete';
+delButton.className = 'btn-delete';
+
+  const okButton = document.createElement ('button');
+  okButton.innerText = 'ok';
+  okButton.className = 'btn-ok';
+  newElement.appendChild (titleElement);
+  newElement.appendChild (titleStyle);
+  titleStyle.appendChild (editButton);
+  titleStyle.appendChild (delButton);
+  titleStyle.appendChild (okButton);
+
+  return newElement;
+  }
+  function addNewTodoToList () {
+  if ($myInput.value) {
+  //addNewElementToList($myInput.value);
+  createElementSerwer ($myInput.value);
+  $myInput.value = '';
+}
 }
 
 function removeListElement(id) {
@@ -115,6 +186,50 @@ function editListElement(id, title) {
   openPopup();
   $popupInput.value = title;
 }
+
+function listClickManager (event) {
+  // Rozstrzygnięcie co dokładnie zostało kliknięte i wywołanie odpowiedniej funkcji
+  // event.target.parentElement.id
+  let id = event.target.parentElement.parentElement.dataset.id;
+  let extra = '1';
+  if (event.target.className === 'btn-edit') {
+    let title = document
+      .querySelector ('li[data-id="' + id + '"]')
+      .querySelector ('span').innerText;
+    curentTodo = id;
+  console.log(curentTodo)
+    editListElement (id, title);
+  } 
+  else if (event.target.className === 'btn-delete') {
+    let dataId = event.target.parentElement.parentElement.dataset.id;
+    removeListElement (dataId);
+  } 
+  else if (event.target.className === 'btn-ok') {
+    markElementAsDone (id, extra);
+  }
+}
+function removeListElement (id) {
+  //let liElement = document.querySelector('li[data-id="'+id+'"]');
+  axios.delete ('http://195.181.210.249:3000/todo/' + id).then (response => {
+    if (response.data.status === 0) {
+      getItemsBySerwer ();
+    }
+  });
+}
+function editListElement (id, title) {
+  // Pobranie informacji na temat zadania
+  // Umieść dane w popupie
+  let liElement = document.querySelector ('li[data-id="' + id + '"]');
+  modal.classList.add ('modal-show');
+  console.log (liElement);
+}
+function addDataToPopup (title, id) {
+  // umieść informacje w odpowiednim miejscu w popupie
+  //console.log($popupInput)
+
+  /////////
+
+
 
 function addDataToPopup(/* Title, author, id */) {
   // umieść informacje w odpowiednim miejscu w popupie
@@ -141,7 +256,7 @@ function declineChanges() { //niepotrzebna raczej
 function markElementAsDone(/* id */) {
   //zaznacz element jako wykonany (podmień klasę CSS)
 }
-/*         poniżj peek------------------ nawias
+/*   
 document.addEventListener('DOMContentLoaded', main);
   // elementów z drzewa DOM i zapisanie ich w zmiennych
   $list = document.getElementById('list');
