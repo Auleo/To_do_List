@@ -13,7 +13,7 @@ ul li button { margin-left: 10px; color: #fff; border: none;
   line-height: 32px; padding: 0 10px; }
 .editBtn { color: #000; background: rgb(231, 183, 93); }
 .deleteBtn { color: #fff; background: #d86a6a; }
-#listWrapper { width: auto; margin: 0 auto; padding: 10px 15px; background:#90eee1;;}
+#listWrapper { width: auto; margin: 0 auto; padding: 10px 15px; background:#ce90ee33;}
 
 /* Include the padding and border in an element's total width and height */
 * { box-sizing: border-box; }

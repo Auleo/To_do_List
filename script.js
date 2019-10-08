@@ -86,6 +86,18 @@ function addNewTodoToList() {
     $myInput.value = '';
   }
 }
+      
+function getItemsBySerwer () {
+  $list.innerHTML = '';
+  axios.get ('http://195.181.210.249:3000/todo/').then (function (response) {
+    if (response.status === 200) {
+      response.data.forEach (todo => {
+        newElementToList (todo.title, todo.id, todo.extra);
+      });
+    }
+  });
+}
+
 
 function listClickManager(event) {
 
@@ -98,6 +110,15 @@ function listClickManager(event) {
   } else if (event.target.className === 'btn-edit') {
     let title = document.querySelector('#' + id).querySelector('span').innerText;
     editListElement(id, title);
+
+        
+
+
+    if (event.target.className === 'btn-edit') {
+      let title = document
+        .querySelector ('li[data-id="' + id + '"]')
+        .querySelector ('span').innerText;
+      curentTodo = id; 
   } else if (event.target.className === 'btn-done') {
     
 
@@ -129,6 +150,7 @@ function listClickManager(event) {
   if (extra != null) {
   newElement.classList.add ('done');
   }
+
   newElement.setAttribute ('data-id', id);
   const titleElement = document.createElement ('span');
   titleElement.innerText = title;
@@ -138,7 +160,7 @@ function listClickManager(event) {
 
   const editButton = document.createElement ('button');
   editButton.innerText = 'edit';
-  editButton.PUT http://195.181.210.249:3000/todo/
+  editButton.PUT = http://195.181.210.249:3000/todo/; 
   editButton.className = 'btn-edit';
 
 
@@ -148,13 +170,14 @@ function listClickManager(event) {
     modal.classList.add ('modal-show');
     console.log (liElement);
   }
-// PUT http://195.181.210.249:3000/todo/ - aktualizuje TODO 
+
 //o podanym w URLu id. Aktualizacja wymaga przesłania parametru title w celu modyfikacji tytułu TODO, przykład: {"title":"test"}
 
 
   const delButton = document.createElement ('button');
   delButton.innerText = 'delete';
-delButton.className = 'btn-delete';
+  delButton.className = 'btn-delete'; 
+  delliElement ="http://195.181.210.249:3000/todo/";
 
   const okButton = document.createElement ('button');
   okButton.innerText = 'ok';
@@ -217,17 +240,59 @@ function removeListElement (id) {
   });
 }
 function editListElement (id, title) {
-  // Pobranie informacji na temat zadania
   // Umieść dane w popupie
   let liElement = document.querySelector ('li[data-id="' + id + '"]');
   modal.classList.add ('modal-show');
   console.log (liElement);
 }
 function addDataToPopup (title, id) {
+  pop ('http://195.181.210.249:3000/todo/' + id).then (response => {
+    if (response.data.status === 0) {
+      getItemsBySerwer ();
+    }
+  });
+}
   // umieść informacje w odpowiednim miejscu w popupie
   //console.log($popupInput)
 
-  /////////
+
+  let titleElement = document
+    .querySelector ('li[data-id="' + curentTodo + '"]')
+    .querySelector ('span'); //document.querySelector('li[data-id="'+ id +'"]');
+  console.log (titleElement);
+  //titleElement.innerText = ;
+  updataTodoSerwer ($popupInput.value);
+  closePopup ();
+}
+function updataTodoSerwer (title, id) {
+  axios
+    .put ('http://195.181.210.249:3000/todo/' + curentTodo, {title: title})
+    .then (response => {
+      if (response.data.status === 0) {
+        getItemsBySerwer ();
+      }
+    });
+}
+function closePopup () {
+  // Zamknij popup
+  modal.classList.remove ('modal-show');
+}
+function markElementAsDone (id, ok) {
+  let todoElementOk = document
+    .querySelector ('li[data-id="' + id + '"]')
+    .querySelector ('span');
+  todoElementOk.classList.add ('don');
+  todoElementOk.setAttribute ('ok', '1');
+  axios
+    .put ('http://195.181.210.249:3000/todo/' + id, {extra: ok})
+    .then (response => {
+      console.log (response);
+    });
+}
+
+
+
+
 
 
 
@@ -261,13 +326,9 @@ document.addEventListener('DOMContentLoaded', main);
   // elementów z drzewa DOM i zapisanie ich w zmiennych
   $list = document.getElementById('list');
 }       */
-
-
   // Przygotowanie listenerów
   let rootElement = document.querySelector('ul');
   let liCollection = document.querySelectorAll('.item-item');
-
-
   //$list.addEventListener('click', listClickManager);
   //let rootElement={ 'ul': li +1 , btn__done:'Potwierdz', btn_cancel: 'Usuń' }
   
@@ -283,7 +344,6 @@ console.log('edit', edit);
 for ( let  i = 0; i< entries[i].length; i++ ) {
   console.log(entries [i][j]);
 }
-/*
 let list = { 
   li : " $addEventListener" 
 };
@@ -291,7 +351,7 @@ li.list = "Edit"
 
 console.log(li.keys(list));
 const entries = ul.entries(ob);
-console.log('lista', lista);
+console.log('list', list);
 for ( let  i = 0; i< entries.length; i++ ) {
 console.log(entries [i]);
 }
@@ -312,7 +372,7 @@ function prepareInitialList() {
   });
 } */
 
-/* To Do List, Mentor Paweł / Aga. W, https://github.com/Auleo/To_do_List*/
+
 function addNewElementToList(title) {
   $list.appendChild(createElement('nowy', 2));
 }
@@ -324,7 +384,6 @@ function addNewElementToList(title) {
     document.getElementById("toDo").appendChild(newItem)
   
     }
-
  //obsługa dodawanie elementów do listy
 // function createElement(title) { 
  // Tworzenie nowego elementu 
@@ -335,10 +394,8 @@ function addNewElementToList(title) {
   newElement.innerText = title;
     console.log(title)
     forEach ( function( newElemen (++list ));
-
   newElement.inerText= document.createElement('span')
   return newElement;
-
 }
 /*
 function listClickManager(/* event- event.target ) {
@@ -348,7 +405,7 @@ function listClickManager(/* event- event.target ) {
   // 
   // 
 }
-*
+
 function removeListElement( id ) {
     let usun = id.removeChild    {
       usun.forEach (function (listID, 
@@ -356,35 +413,41 @@ function removeListElement( id ) {
         ) ))
   }
 }
-/*     
+    
 function editListElement(/* id *) {
   // Pobranie informacji na temat zadania
   // Umieść dane w popupie
-} */
-function addDataToPopup(/* Title, author, id */ ) {
-  // umieść informacje w odpowiednim miejscu w popupie
-}
+} 
 
 function acceptChangeHandler() {
   // pobierz dane na temat zadania z popupu (id, nowyTitle, nowyColor ...)
   // Następnie zmodyfikuj element listy wrzucając w niego nowyTitle, nowyColor...
   // closePopup()
 }
-
 function openPopup() {
   // Otwórz popup
 }
-
 function closePopup() {
   // Zamknij popup
 }
-
 function declineChanges() { //niepotrzebna raczej
   // closePopup()
 }
-
 function markElementAsDone(/* id */) {
-  //zaznacz element jako wykonany (podmień klasę CSS)
+  let todoElementOk = document
+    .querySelector ('li[data-id="' + id + '"]')
+    .querySelector ('span');
+  todoElementOk.classList.add ('done');
+  todoElementOk.setAttribute ('qId', '1');
+  axios
+    .put ('http://195.181.210.249:3000/todo/' + id, {qId: li})
+    .then (response => {
+      console.log (response);
+      if (response.data.status === 0) {
+        getItemsBySerwer ();
 }
+        });
+    }
+
 
 document.addEventListener('DOMContentLoaded', main);
