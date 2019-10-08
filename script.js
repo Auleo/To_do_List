@@ -357,12 +357,12 @@ console.log(entries [i]);
 }
 
   
-/*
+
 function prepareInitialList() {
   letnewElement = document.createElement('li');
   newElement.className = 'text-item';
-  newElement.id= 'test10;'
-  newElement.innerText = 'item 10';
+  newElement.id= 'test;'
+  newElement.innerText = 'item';
   rootElement.appendChild(newElement);
 
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
@@ -370,7 +370,7 @@ function prepareInitialList() {
     addNewElementToList(todo);
 
   });
-} */
+} 
 
 
 function addNewElementToList(title) {
