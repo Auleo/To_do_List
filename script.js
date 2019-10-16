@@ -38,6 +38,45 @@ function prepareDOMEvents() {
     );
   });
 } 
+
+function getText() {
+  fetch('sample.text')
+  .then((res) => res.trxt () )
+  .then((data) => {
+    console.log(err);
+    document.getElementById('output').innerHTML=data;
+  })
+  .catch((err => {
+    console.log(err);
+  })
+}
+
+//get local getUsers
+function getUser() {
+fetch('users.json')
+.then((res) => res.json())
+.then((data)  => {
+  let output = '<h2> Usuń <h2>' ;
+  data.forEach(function(user) {
+    output +=
+      <ul id="listWrapper">
+        <li newTodoItem>ID:${user.id}</li>
+      
+      </ul>
+  })
+
+})
+}
+
+const formData = new ();
+formData.append("item", nameVal);
+formData.append("usuń", usunVal);
+
+
+// usówanie
+  const getPost =() => {
+    return fetch('http://195.181.210.249:3000/todo/item-1')
+    
 function prepareInitialList() {
   // Tutaj utworzymy sobie początkowe todosy. Mogą pochodzić np. z tablicy
   initialList.forEach(todo => {
@@ -47,6 +86,17 @@ function prepareInitialList() {
 
 function List(){
   let item = document.getElementById("todoInpot").value
+
+  await fetch ("http://195.181.210.249:3000/todo/item", {
+  method:('POST')
+      method:"item",
+      body: addForm
+  })
+  .then(res => res.json())
+  .then(res => {
+      console.log("+");
+      console.log(res);
+  })
   let text = document.createTextNode(item)
   let newItem = document.createElement('li')
   newItem.appendChild(text)
@@ -111,17 +161,14 @@ function listClickManager(event) {
     let title = document.querySelector('#' + id).querySelector('span').innerText;
     editListElement(id, title);
 
-        
-
 
     if (event.target.className === 'btn-edit') {
       let title = document
         .querySelector ('li[data-id="' + id + '"]')
         .querySelector ('span').innerText;
       curentTodo = id; 
-  } else if (event.target.className === 'btn-done') {
-    
-
+  } 
+  else if (event.target.className === 'btn-done') {
     const editButton = document.createElement ('button');
     editButton.innerText = 'edit';
     editButton.className = 'btn-edit';
@@ -130,7 +177,7 @@ function listClickManager(event) {
 
 
   const newElement = createElement (title, id, extra);
-  //
+
   $list.appendChild (newElement);
   }
   function createElementSerwer (title) {
@@ -204,6 +251,23 @@ function removeListElement(id) {
 }
 
 function editListElement(id, title) {
+    fetch('liElement.json')
+    .then((res) => res.json())
+    .then((data)  => {
+      let output = '<h2> Usuń <h2>' ;
+      data.forEach(function(liElement) {
+        output +=
+          <ul id="listWrapper">
+            <li editListElement>ID:${user.id}</li>
+          
+          </ul>
+      })
+  
+    })
+  }
+
+
+
   // Pobranie informacji na temat zadania
   // Umieść dane w popupie
   openPopup();
