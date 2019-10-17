@@ -112,7 +112,7 @@ function createNewElementToList(item) {
   fetch("http://195.181.210.249:3000/todo/", {
     method: "post",
     body: requestData
-  })
+  }) 
     .then(res => {
       console.log(res);
       let responseArray = JSON.parse(this.res);
