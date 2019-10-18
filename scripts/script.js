@@ -113,21 +113,21 @@ function createNewElementToList(item) {
     method: "post",
     body: requestData
   }) 
-    .then(res => {
-      console.log(res);
-      let responseArray = JSON.parse(this.res);
-      if (responseArray.statys > 0) {
-        console.log(responseArray);
+  .then(res => res.json())
+  {
+      console.log(res); 
+        if (res.statys > 0) {
+            throw(res);
+
       } else {
-        // obsługa dodawanie elementów do listy
         const newElement = createElement(item);
-        $list.appendChild(newElement);
+          $list.appendChild(newElement);
       }
-    })
-    .catch(error => {
-      console.log("nie dodane");
-      console.log(error);
-    });
+    }
+   // .catch(error => {
+  //    console.log("nie dodane");
+   //   console.log(error);
+//});
 }
 function listClickManager(event) {
 
@@ -136,16 +136,17 @@ function listClickManager(event) {
   let id = idArray[1];
   let title = event.target.getAttribute("value");
   if (event.target.className === "deleteBtn") {
-    removeListElement(id);
-  } else if (event.target.className === "editBtn") {
-    editListElement(id,title);
-  } else if (event.target.className === "doneBtn") {
-    markElementAsDone(id);
-  }
+   // removeListElement(id);
+ // } else if (event.target.className === "editBtn") {
+ //   editListElement(id,title);
+ // } else if (event.target.className === "doneBtn") {
+ //   markElementAsDone(id);
+}
 }
 
 function removeListElement(id) {
   fetch("http://195.181.210.249:3000/todo/" + id, { method: "delete" })
+  .then(res => res.json())
     .then(function(res) {
       if (res.status === 200) {
         let liElement = document.querySelector("#item-" + id);
