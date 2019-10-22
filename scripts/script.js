@@ -10,7 +10,7 @@ function main() {
   prepareDOMElements();
   // Deklaruje obsługe eventów np klinicia itp
   prepareDOMEvents();
-    prepareInitialList();
+  prepareInitialList();
 }
 
 function prepareDOMElements() {
@@ -52,6 +52,7 @@ function createElement(item) {
     newElement.setAttribute("id", "item-" + $lastId);
     //     dodawanie do li id
     const inputField = document.createElement("input");
+    inputField.setAttribute("data-targetId", "item-" + $lastId);
     inputField.setAttribute("value", item.title);
     inputField.setAttribute("name", "item-" + $lastId);
 
@@ -64,8 +65,6 @@ function createElement(item) {
     editBtn.setAttribute("data-targetId", "item-" + $lastId);
     editBtn.setAttribute("class", "editBtn");
     editBtn.innerText = "Edytuj";
-
-
 
     const doneBtn = document.createElement("button");
     doneBtn.setAttribute("data-targetId", "item-" + $lastId);
@@ -80,9 +79,6 @@ function createElement(item) {
   }
   return false;
 }
-
-
-
 
 function prepareInitialList() {
   pobierzListeToDo();
@@ -99,16 +95,16 @@ function createNewElementToList(item) {
     console.log("item jest puste");
     return false;
   }
-  let requestData = new FormData();
-  requestData.append("title", item);
-  requestData.append("description", "Test Agnieszki");
-  requestData.append("priority", 5);
-  requestData.append("author", "Agnieszka Wrześnmiak");
-  requestData.append("extra", "active");
-  requestData.append("url", "www.ocochodzi.pl");
-  //requestData.append("parent_todo_id", 0);
-  console.log("dodaj item ");
+  let requestData = {};
+  requestData["title"] = item;
+  //requestData["description"] = "Test Agnieszki";
+  //requestData["priority"] = 5;
+  //requestData["author"] = "Agnieszka Wrześnmiak";
+  //requestData["extra"] = "active";
+  //requestData["url"] = "www.ocochodzi.pl";
+  //requestData["parent_todo_id"] = 0;
 
+  let requestDataJson = JSON.stringify(requestData);
   fetch("http://195.181.210.249:3000/todo/", {
     method: "post",
     headers: {
@@ -117,81 +113,77 @@ function createNewElementToList(item) {
     },
     body: JSON.stringify(requestData)
   }) 
-  
-  
-  .then(res => res.json())
-  {
-      console.log(res); 
-        if (res.status > 0) {
-            throw(res);
-
-      } else {
-        const newElement = createElement(item);
-          $list.appendChild(newElement);
-      }
+  .then((res) => {
+    return res.json();
+  })
+  .then((res) => {
+    if (res.status > 0) {
+      throw(res);
+    } else {
+      $list.innerHTML = '';
+      prepareInitialList();
     }
-   // .catch(error => {
-  //    console.log("nie dodane");
-   //   console.log(error);
-//});
+  })
+  .catch(error => {
+    console.log("nie dodane");
+    console.log(error);
+  });
 }
-
-
-
-
-
-
-
-
 function listClickManager(event) {
-
   let idRaw = event.target.getAttribute("data-targetid");
   let idArray = idRaw.split('-');
   let id = idArray[1];
+  console.log(event.target);
   let title = event.target.getAttribute("value");
   if (event.target.className === "deleteBtn") {
-   // removeListElement(id);
- // } else if (event.target.className === "editBtn") {
- //   editListElement(id,title);
- // } else if (event.target.className === "doneBtn") {
- //   markElementAsDone(id);
-}
+    removeListElement(id);
+  } else if (event.target.className === "editBtn") {
+    editListElement(id);
+  } else if (event.target.className === "doneBtn") {
+    markElementAsDone(id);
+  }
 }
 
 function removeListElement(id) {
   fetch("http://195.181.210.249:3000/todo/" + id, { method: "delete" })
   .then(res => res.json())
-    .then(function(res) {
-      if (res.status === 200) {
-        let liElement = document.querySelector("#item-" + id);
-        $list.removeChild(liElement);
-      } else {
-        throw "nieusuniete";
-      }
-    })
-    .catch(e => {
-      console.log(e);
-    });
+  .then(function(res) {
+    if (res.status > 0) {
+      throw "nieusuniete";
+    } else {
+      let liElement = document.getElementById("item-" + id);
+      $list.removeChild(liElement);
+    }
+  })
+  .catch(e => {
+    console.log(e);
+  });
 }
 
-function editListElement(id,title) {
-  console.log("To trzeba zrobić -> editListElement");
-  
-  let requestData = new FormData();
-  requestData.append("title", title);
-
-  fetch("http://195.181.210.249:3000/todo/"+ id, {method: 'put', body: requestData})
-    .then(res => res.json())
-    .then(data => {
-      
-    })
-    .catch((e) => {
-
-    });
+function editListElement(id) {
+  console.log('id');
+  console.log(id);
+  let titleTmp = document.getElementById("item-"+id).getElementsByTagName('INPUT');
+  let title = titleTmp[0].getAttribute("value");
+  console.log(title);
+  let requestData = {};
+  requestData["title"] = title;
+  fetch(
+    "http://195.181.210.249:3000/todo/"+ id,
+    {method: 'put', body: JSON.stringify(requestData)}
+  )
+  .then(res => res.json())
+  .then(data => {
+    $list.innerHTML = '';
+    prepareInitialList();
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 }
 function markElementAsDone(id) {
   //zaznacz element jako wykonany (podmień klasę CSS)
-  let liElement = document.querySelector("#" + id);
+  let liElement = document.getElementById("item-"+id);
   liElement.className += " done ";
 }
 function addNewTodoToList() {
@@ -216,11 +208,6 @@ function getItemsBySerwer() {
   editButton.PUT = ('http://195.181.210.249:3000/todo/'); 
   editButton.className = 'btn-edit';
 */
-
-function removeListElement(id) {
-  let liElement = document.querySelector('#' + id);
-  $list.removeChild(liElement);
-}
 
 function pobierzListeToDo() {
   fetch("http://195.181.210.249:3000/todo/", { method: "get" })
