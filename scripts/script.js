@@ -111,17 +111,12 @@ function createNewElementToList(item) {
 
   fetch("http://195.181.210.249:3000/todo/", {
     method: "post",
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(requestData)
-  })  
-
+    body: requestData
+  }) 
   .then(res => res.json())
   {
       console.log(res); 
-        if (res.statys > 0) {
+        if (res.status > 0) {
             throw(res);
 
       } else {
@@ -134,6 +129,14 @@ function createNewElementToList(item) {
    //   console.log(error);
 //});
 }
+
+
+
+
+
+
+
+
 function listClickManager(event) {
 
   let idRaw = event.target.getAttribute("data-targetid");
@@ -170,9 +173,6 @@ function editListElement(id,title) {
   
   let requestData = new FormData();
   requestData.append("title", title);
-
-
-
 
   fetch("http://195.181.210.249:3000/todo/"+ id, {method: 'put', body: requestData})
     .then(res => res.json())
