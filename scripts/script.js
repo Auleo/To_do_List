@@ -111,8 +111,13 @@ function createNewElementToList(item) {
 
   fetch("http://195.181.210.249:3000/todo/", {
     method: "post",
-    body: requestData
-  }) 
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestData)
+  })  
+
   .then(res => res.json())
   {
       console.log(res); 
@@ -165,6 +170,9 @@ function editListElement(id,title) {
   
   let requestData = new FormData();
   requestData.append("title", title);
+
+
+
 
   fetch("http://195.181.210.249:3000/todo/"+ id, {method: 'put', body: requestData})
     .then(res => res.json())
