@@ -111,8 +111,14 @@ function createNewElementToList(item) {
 
   fetch("http://195.181.210.249:3000/todo/", {
     method: "post",
-    body: requestData
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestData)
   }) 
+  
+  
   .then(res => res.json())
   {
       console.log(res); 
